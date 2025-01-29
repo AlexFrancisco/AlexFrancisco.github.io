@@ -85,21 +85,24 @@
 <th>Time</th>
 <th>Glucose Level</th>
 <th>Status</th>
+<th>Comments</th>
 </tr>
 </thead>
 <tbody id="glucose-data">
-<!-- Existing entries -->
+<!-- Existing entries with re-assessment and comments -->
 <tr>
 <td>2025-01-29</td>
 <td>7:30 PM</td>
 <td>137</td>
-<td>Good</td>
+<td>Normal</td>
+<td>Within target post-meal range, good control.</td>
 </tr>
 <tr>
 <td>2025-01-29</td>
 <td>1:30 PM</td>
 <td>96</td>
-<td>Good</td>
+<td>Normal</td>
+<td>Excellent fasting level.</td>
 </tr>
 </tbody>
 </table>
@@ -115,7 +118,7 @@
         document.getElementById("blog-posts").innerHTML = blogPosts.map(post => `
             <div>
                 <h3>${post.title}</h3>
-                <p>${post.content}</p>
+                <p>${post.content}</p
             </div>
         `).join('');
     </script>
