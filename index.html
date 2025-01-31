@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Random Theme Home Page</title>
-<style>
-body {
-    background-color: #6f87cd;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-}
-a:visited, 
-a*link {
-    color: #fff;
-}
-nav {
-    background-color: #333;
-    padding: 10px;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alex Francisco | AI Managed Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #F8F9FA; }
+        .navbar { background-color: #343A40; }
+        .navbar-brand, .nav-link { color: white !important; }
+        .footer { text-align: center; padding: 10px; background: #343A40; color: white; }
+    </style>
 </head>
 <body>
-<nav>
-    <a href="/">Home</a>
-    <a href="/about.url">About</a>
-    <a href="/contact.url">Contact</a>
-</nav>
-<h1>Welcome to Our Random Themed Website</h1>
-<p>This is a sample website with a random theme applied.</p>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.htm">Alex Francisco</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="content/about.htm">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="content/mission.htm">Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="content/blog.htm">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="content/summary.htm">AI Updates</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container text-center my-5">
+        <h1>Welcome to My AI Managed Website</h1>
+        <p class="lead">Every update, every page, and every blog post is dynamically managed by AI.</p>
+    </header>
+
+    <!-- Dynamic Content Sections -->
+    <div class="container">
+        <div id="about-section"></div>
+        <div id="mission-section"></div>
+        <div id="blog-section"></div>
+        <div id="summary-section"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <p>&copy; 2025 Alex Francisco | AI-Managed Website</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>
