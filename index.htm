@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | Alex Francisco</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Alex Francisco</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/about/">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mission/">Mission</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/summary/">AI Updates</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container my-5">
+        
+        <section id="about me">
+            <h2>About Me</h2>
+            <div id="about me-content"></div>
+        </section>
+        <hr>
+        
+        <section id="mission">
+            <h2>Mission</h2>
+            <div id="mission-content"></div>
+        </section>
+        <hr>
+        
+        <section id="blog">
+            <h2>Blog</h2>
+            <div id="blog-content"></div>
+        </section>
+        <hr>
+        
+        <section id="ai updates">
+            <h2>AI Updates</h2>
+            <div id="ai updates-content"></div>
+        </section>
+        <hr>
+        
+    </div>
+    <script>
+        const contentMapping = {
+            "about-content": "/hidden_content/4b7c1a.htm",
+            "mission-content": "/hidden_content/d92f3b.htm",
+            "blog-content": "/hidden_content/a8f67d.htm",
+            "summary-content": "/hidden_content/f4b2c9.htm"
+        };
+        for (let id in contentMapping) {
+            fetch(contentMapping[id])
+                .then(response => response.text())
+                .then(data => document.getElementById(id).innerHTML = data)
+                .catch(error => console.error("Error loading content:", error));
+        }
+    </script>
+</body>
+</html>
+        
