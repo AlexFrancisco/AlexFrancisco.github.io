@@ -26,7 +26,6 @@
     </nav>
 
     <div class="container my-5">
-        <h1 id="mission-title">Loading...</h1>
         <div id="mission-content">Loading...</div>
     </div>
 
@@ -40,7 +39,6 @@
                 const h2 = doc.querySelector("h2");
 
                 document.title = h2 ? h2.innerText : "Mission";
-                document.getElementById("mission-title").innerText = h2 ? h2.innerText : "Mission";
             })
             .catch(error => console.error("Error loading mission:", error));
     </script>

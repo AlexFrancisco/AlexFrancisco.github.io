@@ -26,7 +26,6 @@
     </nav>
 
     <div class="container my-5">
-        <h1 id="about-title">Loading...</h1>
         <div id="about-content">Loading...</div>
     </div>
 
@@ -40,7 +39,6 @@
                 const h2 = doc.querySelector("h2");
 
                 document.title = h2 ? h2.innerText : "About";
-                document.getElementById("about-title").innerText = h2 ? h2.innerText : "About";
             })
             .catch(error => console.error("Error loading about:", error));
     </script>
