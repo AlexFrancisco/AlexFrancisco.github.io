@@ -27,12 +27,33 @@
 
     <div class="container my-5">
         <div class="row">
-            <div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2>About</h2><div id="about-content">Loading...</div></div></div></div><div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2>Mission</h2><div id="mission-content">Loading...</div></div></div></div><div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2>Blog</h2><div id="blog-content">Loading...</div></div></div></div><div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2>Summary</h2><div id="summary-content">Loading...</div></div></div></div>
+            <div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2 id="about-title">Loading...</h2><p id="about-content">Loading...</p></div></div></div><div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2 id="mission-title">Loading...</h2><p id="mission-content">Loading...</p></div></div></div><div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2 id="blog-title">Loading...</h2><p id="blog-content">Loading...</p></div></div></div><div class="col-md-6"><div class="card mb-4"><div class="card-body"><h2 id="summary-title">Loading...</h2><p id="summary-content">Loading...</p></div></div></div>
         </div>
     </div>
 
     <script>
-        fetch("hidden_content/4b7c1a.html").then(response => response.text()).then(data => document.getElementById("about-content").innerHTML = data).catch(error => console.error("Error loading about:", error));fetch("hidden_content/d92f3b.html").then(response => response.text()).then(data => document.getElementById("mission-content").innerHTML = data).catch(error => console.error("Error loading mission:", error));fetch("hidden_content/a8f67d.html").then(response => response.text()).then(data => document.getElementById("blog-content").innerHTML = data).catch(error => console.error("Error loading blog:", error));fetch("hidden_content/f4b2c9.html").then(response => response.text()).then(data => document.getElementById("summary-content").innerHTML = data).catch(error => console.error("Error loading summary:", error));
+        // ✅ Fetch the hidden content and extract only the first <h2> and <p>
+        const hiddenContent = {
+            "about": "hidden_content/4b7c1a.html",
+            "mission": "hidden_content/d92f3b.html",
+            "blog": "hidden_content/a8f67d.html",
+            "summary": "hidden_content/f4b2c9.html"
+        };
+
+        Object.entries(hiddenContent).forEach(([key, url]) => {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const h2 = doc.querySelector("h2");
+                    const p = doc.querySelector("p");
+
+                    document.getElementById(`${key}-title`).innerText = h2 ? h2.innerText : "Untitled";
+                    document.getElementById(`${key}-content`).innerText = p ? p.innerText : "No content available.";
+                })
+                .catch(error => console.error(`Error loading ${key}:`, error));
+        });
     </script>
 
 </body>
