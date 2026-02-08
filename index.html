@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5;url=http://97.182.166.236:8080">
     <title>Hood Mesa Hub - Desert Portal</title>
     <style>
         * {
@@ -63,6 +64,14 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             margin-top: 2rem;
             animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .ip-display {
+            font-size: 1.5rem;
+            font-family: 'Courier New', monospace;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-weight: bold;
         }
         
         .countdown {
@@ -129,13 +138,30 @@
         <div class="subtitle">Welcome to the Desert Portal</div>
         
         <div class="redirect-box">
+            <div class="ip-display">97.182.166.236:8080</div>
+            <div class="countdown">Entering the mesa in <span id="timer">5</span> seconds...</div>
             <div class="manual-link">
-                <a href="http://97.182.166.236:8080">Enter Hood Mesa Hub</a>
+                <a href="http://97.182.166.236:8080">Enter Now</a>
             </div>
         </div>
     </div>
     
     <script>
+        // Countdown timer
+        let seconds = 5;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            if (seconds > 0) {
+                timerElement.textContent = seconds;
+            } else {
+                clearInterval(countdown);
+                timerElement.textContent = '0';
+                document.querySelector('.countdown').textContent = 'Transporting now...';
+            }
+        }, 1000);
+        
         // Desert sunset scene with dynamic mesas
         const canvas = document.getElementById('desert-canvas');
         const ctx = canvas.getContext('2d');
