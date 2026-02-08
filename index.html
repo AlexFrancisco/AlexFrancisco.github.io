@@ -158,54 +158,75 @@
             }
         }
         
-        // Generate mesa shapes
-        function generateMesas(count, random) {
-            const mesas = [];
-            for (let i = 0; i < count; i++) {
-                const x = random.next() * canvas.width;
-                const width = 80 + random.next() * 200;
-                const height = 100 + random.next() * 250;
-                const layers = Math.floor(2 + random.next() * 3);
-                mesas.push({ x, width, height, layers });
+        // Generate mesa silhouette path
+        function generateMesaSilhouette(random, groundY, layerIndex) {
+            const points = [];
+            const numPeaks = 5 + Math.floor(random.next() * 4);
+            
+            // Start from left edge below ground
+            points.push({ x: 0, y: groundY });
+            
+            let currentX = 0;
+            
+            for (let i = 0; i < numPeaks; i++) {
+                const segmentWidth = canvas.width / numPeaks;
+                const peakX = currentX + segmentWidth / 2 + (random.next() - 0.5) * segmentWidth * 0.3;
+                const valleyX = currentX + segmentWidth;
+                
+                // Mesa height varies
+                const peakHeight = 80 + random.next() * 200;
+                const valleyHeight = 30 + random.next() * 80;
+                
+                // Add plateau (flat top)
+                const plateauWidth = 40 + random.next() * 80;
+                points.push({ x: peakX - plateauWidth / 2, y: groundY - peakHeight });
+                points.push({ x: peakX + plateauWidth / 2, y: groundY - peakHeight });
+                
+                // Valley
+                if (i < numPeaks - 1) {
+                    points.push({ x: valleyX, y: groundY - valleyHeight });
+                }
+                
+                currentX = valleyX;
             }
-            return mesas.sort((a, b) => b.height - a.height);
+            
+            // End at right edge below ground
+            points.push({ x: canvas.width, y: groundY });
+            points.push({ x: canvas.width, y: canvas.height });
+            points.push({ x: 0, y: canvas.height });
+            
+            return points;
         }
         
-        // Draw a mesa with layers
-        function drawMesa(mesa, baseY, colorIndex) {
-            const colors = [
-                ['#2c1810', '#3d2415'],
-                ['#4a2c1a', '#5c3a22'],
-                ['#6b4423', '#7d542d']
-            ];
-            const mesaColors = colors[colorIndex % colors.length];
+        // Draw mesa silhouette
+        function drawMesaSilhouette(points, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
             
-            for (let layer = 0; layer < mesa.layers; layer++) {
-                const layerHeight = mesa.height / mesa.layers;
-                const y = baseY - (layer + 1) * layerHeight;
-                const layerWidth = mesa.width * (1 - layer * 0.1);
-                const x = mesa.x - layerWidth / 2;
-                
-                ctx.fillStyle = mesaColors[layer % mesaColors.length];
-                ctx.fillRect(x, y, layerWidth, layerHeight);
-                
-                // Add some texture
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-                for (let i = 0; i < 5; i++) {
-                    ctx.fillRect(
-                        x + Math.random() * layerWidth,
-                        y + Math.random() * layerHeight,
-                        2,
-                        10 + Math.random() * 20
-                    );
-                }
+            for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i].x, points[i].y);
             }
+            
+            ctx.closePath();
+            ctx.fill();
         }
         
         // Animation state
         let time = 0;
         const random = new Random(12345);
-        const mesas = generateMesas(8, random);
+        
+        // Generate multiple layers of mesas
+        const mesaLayers = [
+            { random: new Random(111), color: '#1a0f0a', offsetY: 80 },
+            { random: new Random(222), color: '#2d1810', offsetY: 60 },
+            { random: new Random(333), color: '#4a2c1a', offsetY: 40 }
+        ];
+        
+        const silhouettes = mesaLayers.map(layer => ({
+            points: generateMesaSilhouette(layer.random, canvas.height * 0.75 - layer.offsetY, 0),
+            color: layer.color
+        }));
         
         function draw() {
             time += 0.001;
@@ -251,18 +272,9 @@
             ctx.fillStyle = groundGradient;
             ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
             
-            // Draw mesas at different depths
-            mesas.forEach((mesa, index) => {
-                const depth = index / mesas.length;
-                const scale = 0.4 + depth * 0.6;
-                const adjustedMesa = {
-                    x: mesa.x,
-                    width: mesa.width * scale,
-                    height: mesa.height * scale,
-                    layers: mesa.layers
-                };
-                const baseY = groundY + (1 - depth) * 50;
-                drawMesa(adjustedMesa, baseY, index);
+            // Draw mesa silhouettes (back to front)
+            silhouettes.forEach(silhouette => {
+                drawMesaSilhouette(silhouette.points, silhouette.color);
             });
             
             // Floating clouds
@@ -282,6 +294,14 @@
         // Redraw on resize
         window.addEventListener('resize', () => {
             resizeCanvas();
+            // Regenerate silhouettes for new canvas size
+            silhouettes.length = 0;
+            mesaLayers.forEach(layer => {
+                silhouettes.push({
+                    points: generateMesaSilhouette(layer.random, canvas.height * 0.75 - layer.offsetY, 0),
+                    color: layer.color
+                });
+            });
             draw();
         });
     </script>
