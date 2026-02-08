@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="3;url=http://97.182.166.236:8080">
-    <title>Redirecting to MiniWeb Server...</title>
+    <meta http-equiv="refresh" content="5;url=http://97.182.166.236:8080">
+    <title>Hood Mesa Hub - Desert Portal</title>
     <style>
         * {
             margin: 0;
@@ -12,151 +12,295 @@
             box-sizing: border-box;
         }
         
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Georgia', serif;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        #desert-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
         
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            min-height: 100vh;
+        .content {
+            position: relative;
+            z-index: 2;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: white;
-        }
-        
-        .container {
+            height: 100vh;
             text-align: center;
-            padding: 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        .spinner {
-            width: 80px;
-            height: 80px;
-            border: 8px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            animation: spin 1s linear infinite;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
         
         h1 {
-            font-size: 2.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
             font-weight: 700;
+            letter-spacing: 3px;
+            animation: fadeInDown 1s ease-out;
         }
         
-        p {
-            font-size: 1.3rem;
+        .subtitle {
+            font-size: 1.5rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
         
-        .ip-box {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 1.5rem;
-            border-radius: 15px;
-            margin: 2rem 0;
+        .redirect-box {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
         }
         
-        .ip-box code {
-            font-family: 'Courier New', monospace;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4facfe;
+        .countdown {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
         
         .manual-link {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
         
         .manual-link a {
-            color: white;
+            color: #ffd700;
             text-decoration: none;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 2rem;
+            background: rgba(255, 215, 0, 0.2);
             border-radius: 50px;
-            border: 2px solid white;
+            border: 2px solid #ffd700;
             display: inline-block;
             transition: all 0.3s ease;
             font-weight: 600;
         }
         
         .manual-link a:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 215, 0, 0.4);
             transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
         
-        .info {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            opacity: 0.7;
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            p { font-size: 1.1rem; }
-            .ip-box code { font-size: 1.2rem; }
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .redirect-box { padding: 1.5rem 2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="spinner"></div>
-        <p>Taking you to the MiniWeb Server</p>        <h1>
+    <canvas id="desert-canvas"></canvas>
+    
+    <div class="content">
+        <h1>HOOD MESA HUB</h1>
+        <div class="subtitle">Welcome to the Desert Portal</div>
         
-        <div class="ip-box">
-            <div>Current Server:</div>
-            <code>97.182.166.236:8080</code>
-        </div>
-        
-        <p style="font-size: 1rem;">You will be redirected in 3 seconds</p>
-        
-        <div class="manual-link">
-            <a href="http://97.182.166.236:8080">Click here if not redirected</a>
-        </div>
-        
-        <div class="info">
-            <p style="font-size: 0.8rem;">Creative: 97.182.166.236:25565 | Survival: 97.182.166.236:25566</p>            <p>
+        <div class="redirect-box">
+            <div class="countdown">Entering the mesa in <span id="timer">5</span> seconds...</div>
+            <div class="manual-link">
+                <a href="http://97.182.166.236:8080">Enter Now</a>
+            </div>
         </div>
     </div>
     
     <script>
         // Countdown timer
-        let seconds = 3;
-        const countdownElement = document.querySelector('p[style*="font-size: 1rem"]');
+        let seconds = 5;
+        const timerElement = document.getElementById('timer');
         
         const countdown = setInterval(() => {
             seconds--;
             if (seconds > 0) {
-                countdownElement.textContent = `You will be redirected in ${seconds} second${seconds !== 1 ? 's' : ''}`;
+                timerElement.textContent = seconds;
             } else {
                 clearInterval(countdown);
-                countdownElement.textContent = 'Redirecting now...';
+                timerElement.textContent = '0';
+                document.querySelector('.countdown').textContent = 'Transporting now...';
             }
         }, 1000);
+        
+        // Desert sunset scene with dynamic mesas
+        const canvas = document.getElementById('desert-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Random number generator with seed for consistent mesas
+        class Random {
+            constructor(seed) {
+                this.seed = seed;
+            }
+            next() {
+                this.seed = (this.seed * 9301 + 49297) % 233280;
+                return this.seed / 233280;
+            }
+        }
+        
+        // Generate mesa shapes
+        function generateMesas(count, random) {
+            const mesas = [];
+            for (let i = 0; i < count; i++) {
+                const x = random.next() * canvas.width;
+                const width = 80 + random.next() * 200;
+                const height = 100 + random.next() * 250;
+                const layers = Math.floor(2 + random.next() * 3);
+                mesas.push({ x, width, height, layers });
+            }
+            return mesas.sort((a, b) => b.height - a.height);
+        }
+        
+        // Draw a mesa with layers
+        function drawMesa(mesa, baseY, colorIndex) {
+            const colors = [
+                ['#2c1810', '#3d2415'],
+                ['#4a2c1a', '#5c3a22'],
+                ['#6b4423', '#7d542d']
+            ];
+            const mesaColors = colors[colorIndex % colors.length];
+            
+            for (let layer = 0; layer < mesa.layers; layer++) {
+                const layerHeight = mesa.height / mesa.layers;
+                const y = baseY - (layer + 1) * layerHeight;
+                const layerWidth = mesa.width * (1 - layer * 0.1);
+                const x = mesa.x - layerWidth / 2;
+                
+                ctx.fillStyle = mesaColors[layer % mesaColors.length];
+                ctx.fillRect(x, y, layerWidth, layerHeight);
+                
+                // Add some texture
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+                for (let i = 0; i < 5; i++) {
+                    ctx.fillRect(
+                        x + Math.random() * layerWidth,
+                        y + Math.random() * layerHeight,
+                        2,
+                        10 + Math.random() * 20
+                    );
+                }
+            }
+        }
+        
+        // Animation state
+        let time = 0;
+        const random = new Random(12345);
+        const mesas = generateMesas(8, random);
+        
+        function draw() {
+            time += 0.001;
+            
+            // Sky gradient - sunset colors
+            const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            skyGradient.addColorStop(0, '#1a0d3d');
+            skyGradient.addColorStop(0.3, '#4a1a6b');
+            skyGradient.addColorStop(0.5, '#d4447e');
+            skyGradient.addColorStop(0.7, '#ff6b35');
+            skyGradient.addColorStop(0.85, '#ffb347');
+            skyGradient.addColorStop(1, '#ffd699');
+            
+            ctx.fillStyle = skyGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw sun
+            const sunY = canvas.height * 0.6;
+            const sunGradient = ctx.createRadialGradient(
+                canvas.width / 2, sunY, 0,
+                canvas.width / 2, sunY, 150
+            );
+            sunGradient.addColorStop(0, '#ffe4b5');
+            sunGradient.addColorStop(0.5, '#ffa500');
+            sunGradient.addColorStop(1, 'rgba(255, 165, 0, 0)');
+            
+            ctx.fillStyle = sunGradient;
+            ctx.fillRect(0, sunY - 150, canvas.width, 300);
+            
+            // Sun disk
+            ctx.fillStyle = '#ffeb3b';
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, sunY, 80, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Ground/desert floor
+            const groundY = canvas.height * 0.75;
+            const groundGradient = ctx.createLinearGradient(0, groundY, 0, canvas.height);
+            groundGradient.addColorStop(0, '#d4a574');
+            groundGradient.addColorStop(0.5, '#c9956e');
+            groundGradient.addColorStop(1, '#b8845e');
+            
+            ctx.fillStyle = groundGradient;
+            ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
+            
+            // Draw mesas at different depths
+            mesas.forEach((mesa, index) => {
+                const depth = index / mesas.length;
+                const scale = 0.4 + depth * 0.6;
+                const adjustedMesa = {
+                    x: mesa.x,
+                    width: mesa.width * scale,
+                    height: mesa.height * scale,
+                    layers: mesa.layers
+                };
+                const baseY = groundY + (1 - depth) * 50;
+                drawMesa(adjustedMesa, baseY, index);
+            });
+            
+            // Floating clouds
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            for (let i = 0; i < 5; i++) {
+                const x = ((time * 20 + i * 200) % (canvas.width + 200)) - 100;
+                const y = 50 + i * 40;
+                ctx.beginPath();
+                ctx.ellipse(x, y, 60, 20, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Initial draw
+        draw();
+        
+        // Redraw on resize
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            draw();
+        });
     </script>
 </body>
 </html>
