@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Consulting Services | Alex Francisco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0a84ff;
+            --accent: #5e5ce6;
+            --dark-bg: #0a0a0f;
+            --dark-card: #16161d;
+            --dark-hover: #1f1f28;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--dark-bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 212, 255, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(94, 92, 230, 0.1) 0px, transparent 50%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--dark-card);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(94, 92, 230, 0.1) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+        
+        section .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: transparent;
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-content h3 {
+            color: var(--primary);
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .expertise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .expertise-item {
+            padding: 1.5rem;
+            background: var(--dark-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-item:hover {
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .expertise-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .expertise-item p {
+            color: var(--text-secondary);
+        }
+        
+        /* Experience Section */
+        .experience {
+            background: transparent;
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-year {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+            background: var(--dark-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            transform: scale(1.02);
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 4px solid var(--dark-bg);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            left: -10px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            right: -10px;
+        }
+        
+        .timeline-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Services Section */
+        .services {
+            background: transparent;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-card {
+            background: var(--dark-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(94, 92, 230, 0.1) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: var(--text-primary);
+        }
+        
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-content p {
+            color: var(--text-secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--dark-card);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-link:hover {
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        footer {
+            background: var(--dark-card);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin: 0.25rem 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+            section { padding: 3rem 0; }
+            section h2 { font-size: 2rem; }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column !important;
+            }
+            
+            .timeline-year {
+                text-align: left;
+                justify-content: flex-start;
+                padding-left: 50px;
+            }
+            
+            .timeline-content {
+                margin-left: 50px;
+            }
+            
+            .timeline-content::before {
+                left: -35px !important;
+                border-color: var(--dark-bg) !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Alex Francisco</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="journey.html">Journey</a></li>
+                <li><a href="consulting.html">Consulting</a></li>
+                <li><a href="software.html">Software</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI Consulting Services</h1>
+            <p class="tagline">Bringing Enterprise-Grade AI Solutions to the Four Corners</p>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    With over 20 years of technology experience spanning public service, healthcare IT, and financial services, I specialize in building the systems that help businesses scale. My career has evolved from managing critical IT infrastructure for the San Juan County Sheriff's Office to leading workflow automation for healthcare systems at Orion Health, and architecting complex cloud migrations as a Senior Automation Engineer at PSCU—one of the nation's leading credit union service organizations.
+                </p>
+                <p>
+                    Following a stroke in 2023, my focus shifted from managing large-scale infrastructure to developing bespoke AI and software solutions. This journey of recovery, combined with my healthcare IT experience, inspired me to build tools like my stroke progress tracking application—software designed with the technical rigor of an enterprise engineer and the empathy of someone who has navigated the challenges firsthand.
+                </p>
+                <p>
+                    During my recovery, I immersed myself in studying AI and the rapidly evolving AI ecosystem. This has become a core focus of my research and expertise—tracking emerging technologies, understanding new frameworks and models, and staying at the forefront of how AI is transforming business operations. This deep engagement with AI innovation informs every consulting engagement and solution I develop.
+                </p>
+                <p>
+                    Today, I am bringing that enterprise-grade expertise back to the Farmington, New Mexico area. Through my consulting practice, I help businesses of all sizes transition into the AI era, providing assessments and custom research to ensure their operations are as efficient and resilient as possible.
+                </p>
+                
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Core Expertise</h3>
+                <div class="expertise-list">
+                    <div class="expertise-item">
+                        <h4>AI Research & Strategy</h4>
+                        <p>Deep focus on the evolving AI ecosystem, emerging frameworks, and practical business applications</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Programming Languages</h4>
+                        <p>Python, JavaScript/TypeScript, Bash/Shell Scripting, PowerShell, SQL</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Cloud & Virtualization</h4>
+                        <p>AWS (EC2, S3, Lambda, RDS), vSphere, VMware, Azure fundamentals</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Automation & DevOps</h4>
+                        <p>Stonebranch, Informatica, CI/CD Pipelines, Git, Infrastructure as Code</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Operating Systems</h4>
+                        <p>RedHat/RHEL, CentOS, Ubuntu, Windows Server, Linux Administration</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Web Technologies</h4>
+                        <p>React, Node.js, Express, REST APIs, HTML/CSS, Responsive Design</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Databases</h4>
+                        <p>PostgreSQL, MySQL, MongoDB, Database Administration, Query Optimization</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Enterprise Tools</h4>
+                        <p>Active Directory, Group Policy, Mobile Data Terminals, Records Management Systems</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>IT Infrastructure</h4>
+                        <p>Server Administration, Network Configuration, Batch Job Processing, System Monitoring</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Healthcare IT</h4>
+                        <p>HIPAA Compliance, Healthcare Systems Integration, Workflow Automation, System Performance Management</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <h2>Professional Journey</h2>
+            <p class="section-subtitle">Over two decades of technology leadership and innovation</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2019-2022</div>
+                    <div class="timeline-content">
+                        <h3>Automation Engineer</h3>
+                        <h4>PSCU | Phoenix, AZ</h4>
+                        <p>Managed complex data automation workflows, developed advanced scripting solutions, and led cloud migration initiatives to AWS. Specialized in optimizing enterprise-scale data processing and deployment automation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2017-2018</div>
+                    <div class="timeline-content">
+                        <h3>Technical Support Manager</h3>
+                        <h4>Orion Health | Scottsdale, AZ</h4>
+                        <p>Led workflow automation initiatives for healthcare IT systems, managed system performance optimization, and architected AWS cloud deployments. This healthcare technology experience informs my approach to building accessible, mission-critical applications.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-content">
+                        <h3>Senior Automation Engineer</h3>
+                        <h4>PSCU | Phoenix, AZ</h4>
+                        <p>Designed sophisticated deployment pipelines, implemented enterprise job scheduling systems, and developed comprehensive data automation frameworks for financial services infrastructure.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2014-2015</div>
+                    <div class="timeline-content">
+                        <h3>Core Services Engineer</h3>
+                        <h4>PSCU | Phoenix, AZ</h4>
+                        <p>Managed critical IT infrastructure, automated batch job processing, and designed efficient data workflows supporting millions of financial transactions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2013</div>
+                    <div class="timeline-content">
+                        <h3>PC Technician</h3>
+                        <h4>Power-One | Phoenix, AZ</h4>
+                        <p>Maintained enterprise Windows environments, provided comprehensive hardware/software troubleshooting, and supported IT infrastructure operations.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2008-2010</div>
+                    <div class="timeline-content">
+                        <h3>PC Technician</h3>
+                        <h4>San Juan County Sheriff's Office | New Mexico</h4>
+                        <p>Deployed and maintained Mobile Data Terminals (MDTs), managed in-car video systems, and trained law enforcement officers on records management software. Provided critical IT support for public safety operations.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2007</div>
+                    <div class="timeline-content">
+                        <h3>IT Technician</h3>
+                        <h4>San Juan County IT Department | New Mexico</h4>
+                        <p>Provided comprehensive IT support, basic networking, and technology assistance to county employees, beginning my foundation in enterprise IT services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Consulting Services</h2>
+            <p class="section-subtitle">Strategic AI integration and enterprise solutions for growing businesses</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>AI Readiness Assessment</h3>
+                    <p>Evaluate your business's current tech stack for AI integration opportunities. I assess your infrastructure, identify bottlenecks, and provide a roadmap for implementing AI solutions that deliver real value.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Workflow Automation</h3>
+                    <p>Streamline repetitive tasks and improve operational efficiency using AI-powered automation. From data entry to customer queries, I design systems that free your team to focus on high-value work.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Custom Enterprise Research</h3>
+                    <p>High-level technology scouting and research for larger firms. I help enterprises stay ahead of the curve by identifying emerging technologies and providing strategic implementation guidance.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">☁️</div>
+                    <h3>Cloud Migration</h3>
+                    <p>Expert guidance on AWS cloud deployments and migrations. Leverage my experience managing large-scale cloud transitions to ensure your move to the cloud is smooth and cost-effective.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔐</div>
+                    <h3>Infrastructure Management</h3>
+                    <p>Server administration, systems management, and IT infrastructure optimization. Build resilient, scalable systems with enterprise-grade reliability.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Data Pipeline Engineering</h3>
+                    <p>Design and implement robust data workflows and automated deployment pipelines. Transform your data operations into efficient, scalable processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Ready to bring enterprise-grade AI solutions to your business? Let's discuss how I can help you scale efficiently and effectively.
+                </p>
+                
+                <div class="social-links">
+                    <a href="mailto:AlexF82@msn.com" class="social-link">
+                        <span>📧</span> AlexF82@msn.com
+                    </a>
+                    <a href="https://www.tiktok.com/@notsoquesadilla" class="social-link" target="_blank">
+                        <span>📱</span> TikTok
+                    </a>
+                    <a href="https://github.com/AlexFrancisco" class="social-link" target="_blank">
+                        <span>💻</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Alex Francisco. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Automation Architect | AI Consultant | Enterprise Solutions</p>
+        </div>
+    </footer>
+</body>
+</html>

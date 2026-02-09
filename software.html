@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bespoke Software | Alex Francisco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0a84ff;
+            --accent: #5e5ce6;
+            --dark-bg: #0a0a0f;
+            --dark-card: #16161d;
+            --dark-hover: #1f1f28;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--dark-bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 212, 255, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(94, 92, 230, 0.1) 0px, transparent 50%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--dark-card);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(94, 92, 230, 0.1) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+        
+        section .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            background: transparent;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        @media (min-width: 769px) and (max-width: 1199px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1200px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .portfolio-card {
+            background: var(--dark-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+        
+        .portfolio-card-content {
+            padding: 2rem;
+        }
+        
+        .portfolio-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.2);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            border: 1px solid var(--primary);
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .github-card-wide {
+            grid-column: 1 / -1;
+        }
+        
+        .github-card-wide .portfolio-card-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .github-card .btn-github {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: var(--dark-bg);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .github-card .btn-github:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        @media (min-width: 1200px) {
+            .github-card-wide {
+                grid-column: span 3;
+            }
+            
+            .github-card-wide .portfolio-card-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                align-items: start;
+            }
+            
+            .github-card-wide .portfolio-card-content > div:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+        
+        /* Skills Section */
+        .skills {
+            background: transparent;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .skill-card {
+            background: var(--dark-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .skill-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* GitHub Repos Section */
+        .github-repos {
+            background: transparent;
+        }
+        
+        .repos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .repo-card {
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .repo-card:hover {
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .repo-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .repo-card-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+        
+        .repo-card-meta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: auto;
+        }
+        
+        .repo-card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .repo-language {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+        
+        .loading {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: 2rem;
+            grid-column: 1 / -1;
+        }
+        
+        .github-card {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(94, 92, 230, 0.05));
+        }
+        
+        .github-card:hover {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(94, 92, 230, 0.1));
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(94, 92, 230, 0.1) 100%);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: var(--text-primary);
+        }
+        
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-content p {
+            color: var(--text-secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--dark-card);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-link:hover {
+            background: var(--dark-hover);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        footer {
+            background: var(--dark-card);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin: 0.25rem 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { gap: 1rem; font-size: 0.9rem; }
+            section { padding: 3rem 0; }
+            section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Alex Francisco</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="journey.html">Journey</a></li>
+                <li><a href="consulting.html">Consulting</a></li>
+                <li><a href="software.html">Software</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Bespoke Software</h1>
+            <p class="tagline">Custom applications designed with enterprise expertise and personal empathy</p>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <p class="section-subtitle">Custom applications designed to solve specific, complex problems</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card github-card github-card-wide">
+                    <div class="portfolio-card-content">
+                        <div>
+                            <h3>💻 Open Source & Projects</h3>
+                            <p>
+                                Explore my public repositories on GitHub to see real-world examples of my code, contributions to open source, and personal projects demonstrating various technologies and solutions.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <strong>What You'll Find:</strong> Scripts, automation tools, web applications, and technical experiments showcasing my development philosophy and coding standards.
+                            </p>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="https://github.com/AlexFrancisco" target="_blank" class="btn-github">
+                                    <span>🔗</span> View GitHub Profile
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="portfolio-tag">Open Source</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Stroke Progress Tracking Application</h3>
+                        <p>
+                            A specialized health tracking application designed for stroke survivors to monitor recovery progress. This project demonstrates my ability to combine technical expertise with deep empathy and subject matter understanding.
+                        </p>
+                        <p>
+                            <strong>Scalability:</strong> Available as a streamlined version for individual use (B2C) or as a HIPAA-compliant enterprise solution licensed to rehabilitation centers and hospitals (B2B).
+                        </p>
+                        <p>
+                            <strong>Background:</strong> Built from personal experience following my stroke in 2023, this application addresses real needs in the recovery process with features designed for accessibility and ease of use.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Healthcare</span>
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">Enterprise-Ready</span>
+                            <span class="portfolio-tag">Accessibility</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Enterprise Automation Solutions</h3>
+                        <p>
+                            Custom automation frameworks for data workflows and job scheduling. Built with Stonebranch and Informatica, these solutions handle complex deployment pipelines and large-scale operations.
+                        </p>
+                        <p>
+                            <strong>Experience:</strong> Proven track record managing critical infrastructure for financial services and government organizations, processing millions of transactions daily.
+                        </p>
+                        <p>
+                            <strong>Expertise:</strong> Designed sophisticated systems for PSCU, a leading credit union service organization, handling batch processing, cloud migrations, and automated deployments.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Automation</span>
+                            <span class="portfolio-tag">AWS</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">Enterprise</span>
+                            <span class="portfolio-tag">DevOps</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Custom Business Applications</h3>
+                        <p>
+                            Bespoke software development tailored to your specific business needs. Whether you need a specialized tool for a single user or an enterprise-wide solution, I build software that scales with your business.
+                        </p>
+                        <p>
+                            <strong>Approach:</strong> From concept to deployment, I handle the full development lifecycle with the technical rigor you'd expect from an enterprise engineer with 20+ years of experience.
+                        </p>
+                        <p>
+                            <strong>Focus:</strong> Building reliable, maintainable solutions that solve real business problems, not just implementing trendy technologies.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Full-Stack</span>
+                            <span class="portfolio-tag">TypeScript</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">Custom Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- GitHub Repositories Section -->
+    <section class="github-repos" id="repos">
+        <div class="container">
+            <h2>Recent GitHub Projects</h2>
+            <p class="section-subtitle">A selection of my public repositories and contributions</p>
+            
+            <div id="repos-grid" class="repos-grid">
+                <div class="loading">Loading repositories...</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Technical Proficiencies</h2>
+            <p class="section-subtitle">Comprehensive skill set built over 20+ years across diverse technology environments</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python (Advanced)</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>Node.js</li>
+                        <li>Bash / Shell Scripting</li>
+                        <li>PowerShell</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Cloud & Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>AWS (EC2, S3, Lambda, RDS)</li>
+                        <li>vSphere / VMware</li>
+                        <li>Azure Fundamentals</li>
+                        <li>RedHat Enterprise Linux</li>
+                        <li>Windows Server</li>
+                        <li>Linux Administration</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Automation & DevOps</h3>
+                    <ul class="skill-list">
+                        <li>Stonebranch</li>
+                        <li>Informatica</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Git / Version Control</li>
+                        <li>Infrastructure as Code</li>
+                        <li>Batch Job Processing</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Web Development</h3>
+                    <ul class="skill-list">
+                        <li>React / React Native</li>
+                        <li>Express.js</li>
+                        <li>REST APIs</li>
+                        <li>HTML5 / CSS3</li>
+                        <li>Responsive Design</li>
+                        <li>Progressive Web Apps</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Databases</h3>
+                    <ul class="skill-list">
+                        <li>PostgreSQL</li>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>Database Administration</li>
+                        <li>Query Optimization</li>
+                        <li>Data Migration</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Enterprise & Systems</h3>
+                    <ul class="skill-list">
+                        <li>Active Directory</li>
+                        <li>Group Policy</li>
+                        <li>Server Administration</li>
+                        <li>Network Configuration</li>
+                        <li>HIPAA Compliance</li>
+                        <li>System Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Build Something</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Have a custom software project in mind? Let's discuss how my enterprise experience can bring your vision to life.
+                </p>
+                
+                <div class="social-links">
+                    <a href="mailto:AlexF82@msn.com" class="social-link">
+                        <span>📧</span> AlexF82@msn.com
+                    </a>
+                    <a href="https://www.tiktok.com/@notsoquesadilla" class="social-link" target="_blank">
+                        <span>📱</span> TikTok
+                    </a>
+                    <a href="https://github.com/AlexFrancisco" class="social-link" target="_blank">
+                        <span>💻</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Alex Francisco. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Bespoke Software Development | Enterprise Solutions</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Fetch GitHub repositories
+        async function fetchGitHubRepos() {
+            const username = 'AlexFrancisco';
+            const reposGrid = document.getElementById('repos-grid');
+            
+            try {
+                const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch repositories');
+                }
+                
+                const repos = await response.json();
+                
+                // Clear loading message
+                reposGrid.innerHTML = '';
+                
+                // Filter out forks if you want, and display repos
+                const filteredRepos = repos.filter(repo => !repo.fork);
+                
+                if (filteredRepos.length === 0) {
+                    reposGrid.innerHTML = '<div class="loading">No public repositories found.</div>';
+                    return;
+                }
+                
+                filteredRepos.slice(0, 6).forEach(repo => {
+                    const repoCard = document.createElement('a');
+                    repoCard.href = repo.html_url;
+                    repoCard.target = '_blank';
+                    repoCard.className = 'repo-card';
+                    
+                    const stars = repo.stargazers_count;
+                    const forks = repo.forks_count;
+                    const language = repo.language || 'N/A';
+                    const description = repo.description || 'No description available';
+                    
+                    repoCard.innerHTML = `
+                        <h3>
+                            <span>📦</span>
+                            ${repo.name}
+                        </h3>
+                        <p class="repo-card-description">${description}</p>
+                        <div class="repo-card-meta">
+                            ${language !== 'N/A' ? `
+                                <span>
+                                    <span class="repo-language"></span>
+                                    ${language}
+                                </span>
+                            ` : ''}
+                            <span>⭐ ${stars}</span>
+                            <span>🔱 ${forks}</span>
+                        </div>
+                    `;
+                    
+                    reposGrid.appendChild(repoCard);
+                });
+            } catch (error) {
+                console.error('Error fetching GitHub repos:', error);
+                reposGrid.innerHTML = '<div class="loading">Unable to load repositories at this time.</div>';
+            }
+        }
+        
+        // Load repositories when page loads
+        document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
+    </script>
+</body>
+</html>

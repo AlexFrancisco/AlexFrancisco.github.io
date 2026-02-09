@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="5;url=http://97.182.166.236:8080">
-    <title>Hood Mesa Hub - Desert Portal</title>
+    <title>Alex Francisco | Enterprise Tech & AI Solutions</title>
     <style>
         * {
             margin: 0;
@@ -12,93 +11,159 @@
             box-sizing: border-box;
         }
         
-        body, html {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            font-family: 'Georgia', serif;
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0a84ff;
+            --accent: #5e5ce6;
+            --dark-bg: #0a0a0f;
+            --dark-card: #16161d;
+            --dark-hover: #1f1f28;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --gold: #ffc233;
         }
         
-        #desert-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--dark-bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 212, 255, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(94, 92, 230, 0.1) 0px, transparent 50%);
+            min-height: 100vh;
         }
         
-        .content {
-            position: relative;
-            z-index: 2;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .landing {
+            text-align: center;
+            color: var(--text-primary);
+            padding: 4rem 0;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            height: 100vh;
-            text-align: center;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
         
-        h1 {
+        .logo {
             font-size: 4rem;
-            margin-bottom: 1rem;
             font-weight: 700;
-            letter-spacing: 3px;
+            margin-bottom: 1rem;
             animation: fadeInDown 1s ease-out;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        .subtitle {
+        .tagline {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
             animation: fadeInUp 1s ease-out 0.3s both;
         }
         
-        .redirect-box {
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            padding: 2rem 3rem;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            margin-top: 2rem;
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
             animation: fadeInUp 1s ease-out 0.6s both;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .ip-display {
-            font-size: 1.5rem;
-            font-family: 'Courier New', monospace;
-            color: #ffd700;
-            margin-bottom: 1rem;
-            font-weight: bold;
-        }
-        
-        .countdown {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .manual-link {
-            margin-top: 1.5rem;
-        }
-        
-        .manual-link a {
-            color: #ffd700;
+        .landing-card {
+            background: var(--dark-card);
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
             text-decoration: none;
-            padding: 0.8rem 2rem;
-            background: rgba(255, 215, 0, 0.2);
-            border-radius: 50px;
-            border: 2px solid #ffd700;
-            display: inline-block;
-            transition: all 0.3s ease;
-            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
         
-        .manual-link a:hover {
-            background: rgba(255, 215, 0, 0.4);
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        .landing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .landing-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(94, 92, 230, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .landing-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .landing-card:hover::after {
+            opacity: 1;
+        }
+        
+        .landing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.3);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .landing-card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .landing-card p {
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        footer {
+            padding: 3rem 1rem;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: var(--dark-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         @keyframes fadeInDown {
@@ -123,213 +188,488 @@
             }
         }
         
+        /* Section Styles */
+        section {
+            padding: 2rem 0;
+            background: var(--dark-bg);
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .expertise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .expertise-item {
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .expertise-item h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .expertise-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Timeline Styles with Hanging Paragraphs */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 120px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            margin-left: 1.5rem;
+        }
+        
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--dark-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        
+        .service-card h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .service-icon {
+            font-size: 1.8rem;
+            display: inline-block;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-card {
+            background: var(--dark-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        
+        .portfolio-card-content {
+            padding: 2rem;
+        }
+        
+        .portfolio-card-content h3 {
+            color: var(--text-primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-card-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--dark-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            min-width: 300px;
+            justify-content: center;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+        
+        .minecraft-link {
+            margin-top: 1.5rem;
+        }
+        
+        .minecraft-link a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .minecraft-link a:hover {
+            color: var(--gold);
+        }
+        
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .subtitle { font-size: 1.2rem; }
-            .redirect-box { padding: 1.5rem 2rem; }
+            .logo { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+            section { padding: 2rem 0; }
+            section h2 { font-size: 2rem; }
+            .timeline-item { flex-direction: column; gap: 0.5rem; }
+            .timeline-year { min-width: auto; }
+            .timeline-content p { padding-left: 0; text-indent: 0; margin-left: 0; }
         }
     </style>
 </head>
 <body>
-    <canvas id="desert-canvas"></canvas>
-    
-    <div class="content">
-        <h1>HOOD MESA HUB</h1>
-        <div class="subtitle">Welcome to the Desert Portal</div>
-        
-        <div class="redirect-box">
-            <div class="ip-display">97.182.166.236:8080</div>
-            <div class="countdown">Entering the mesa in <span id="timer">5</span> seconds...</div>
-            <div class="manual-link">
-                <a href="http://97.182.166.236:8080">Enter Now</a>
+    <section class="landing">
+        <div class="container">
+            <h1 class="logo">Alex Francisco</h1>
+            <p class="tagline">Automation Architect | AI Consultant | Software Developer<br>
+            <span style="font-size: 0.9em; opacity: 0.8;">Researching & implementing the evolving AI ecosystem</span></p>
+            
+            <div class="cards-grid">
+                <a href="journey.html" class="landing-card">
+                    <div class="card-icon">🚀</div>
+                    <h2>My Journey</h2>
+                    <p>20+ years in tech, stroke recovery, and AI as assistive technology</p>
+                </a>
+                
+                <a href="consulting.html" class="landing-card">
+                    <div class="card-icon">🤖</div>
+                    <h2>AI Consulting</h2>
+                    <p>Enterprise AI solutions and automation services</p>
+                </a>
+                
+                <a href="software.html" class="landing-card">
+                    <div class="card-icon">💻</div>
+                    <h2>Bespoke Software</h2>
+                    <p>Custom applications and enterprise solutions</p>
+                </a>
+                
+                <a href="http://97.182.166.236:8080" class="landing-card">
+                    <div class="card-icon">🎮</div>
+                    <h2>Hood Mesa Hub</h2>
+                    <p>Minecraft Server<br>Evil Lab</p>
+                </a>
             </div>
         </div>
-    </div>
+    </section>
     
-    <script>
-        // Countdown timer
-        let seconds = 5;
-        const timerElement = document.getElementById('timer');
-        
-        const countdown = setInterval(() => {
-            seconds--;
-            if (seconds > 0) {
-                timerElement.textContent = seconds;
-            } else {
-                clearInterval(countdown);
-                timerElement.textContent = '0';
-                document.querySelector('.countdown').textContent = 'Transporting now...';
-            }
-        }, 1000);
-        
-        // Desert sunset scene with dynamic mesas
-        const canvas = document.getElementById('desert-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-        
-        // Random number generator with seed for consistent mesas
-        class Random {
-            constructor(seed) {
-                this.seed = seed;
-            }
-            next() {
-                this.seed = (this.seed * 9301 + 49297) % 233280;
-                return this.seed / 233280;
-            }
-        }
-        
-        // Generate mesa silhouette path
-        function generateMesaSilhouette(random, groundY, layerIndex) {
-            const points = [];
-            const numPeaks = 5 + Math.floor(random.next() * 4);
-            
-            // Start from left edge below ground
-            points.push({ x: 0, y: groundY });
-            
-            let currentX = 0;
-            
-            for (let i = 0; i < numPeaks; i++) {
-                const segmentWidth = canvas.width / numPeaks;
-                const peakX = currentX + segmentWidth / 2 + (random.next() - 0.5) * segmentWidth * 0.3;
-                const valleyX = currentX + segmentWidth;
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>
+                    With over 20 years of technology experience spanning public service, healthcare IT, and financial services, I specialize in building the systems that help businesses scale. My career has evolved from managing critical IT infrastructure for the San Juan County Sheriff's Office to leading workflow automation for healthcare systems at Orion Health, and architecting complex cloud migrations as a Senior Automation Engineer at PSCU—one of the nation's leading credit union service organizations.
+                </p>
+                <p>
+                    Following a stroke in 2023, my focus shifted from managing large-scale infrastructure to developing bespoke AI and software solutions. This journey of recovery, combined with my healthcare IT experience, inspired me to build tools like my stroke progress tracking application—software designed with the technical rigor of an enterprise engineer and the empathy of someone who has navigated the challenges firsthand.
+                </p>
+                <p>
+                    Today, I am bringing that enterprise-grade expertise back to the Farmington, New Mexico area. Through my consulting practice, I help businesses of all sizes transition into the AI era, providing assessments and custom research to ensure their operations are as efficient and resilient as possible.
+                </p>
                 
-                // Mesa height varies
-                const peakHeight = 80 + random.next() * 200;
-                const valleyHeight = 30 + random.next() * 80;
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: var(--primary);">Technical Proficiencies</h3>
+                <div class="expertise-list">
+                    <div class="expertise-item">
+                        <h4>AI Research & Strategy</h4>
+                        <p>LLM evaluation, prompt engineering, AI workflow design, enterprise AI integration</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Programming Languages</h4>
+                        <p>Python, JavaScript/TypeScript, Bash, PowerShell, SQL</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Cloud & Virtualization</h4>
+                        <p>AWS (EC2, S3, IAM), VMware vSphere, Azure, RedHat Enterprise Linux</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Automation & DevOps</h4>
+                        <p>Stonebranch UAC, Informatica, Git, CI/CD pipelines, Infrastructure as Code</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Web Technologies</h4>
+                        <p>React, Node.js, REST APIs, Progressive Web Apps, responsive design</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Database Administration</h4>
+                        <p>PostgreSQL, MySQL, MongoDB, query optimization, data migration</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>Enterprise Systems</h4>
+                        <p>Active Directory, Group Policy, MDT deployment, Windows Server administration</p>
+                    </div>
+                    <div class="expertise-item">
+                        <h4>IT Infrastructure</h4>
+                        <p>Server administration, network configuration, batch processing, system monitoring</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Consulting Services</h2>
+            <p class="section-subtitle">Strategic AI integration and enterprise solutions for growing businesses</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><span class="service-icon">🔍</span> AI Readiness Assessment</h3>
+                    <p>Evaluate your business's current tech stack for AI integration opportunities. I assess your infrastructure, identify bottlenecks, and provide a roadmap for implementing AI solutions that deliver real value.</p>
+                </div>
                 
-                // Add plateau (flat top)
-                const plateauWidth = 40 + random.next() * 80;
-                points.push({ x: peakX - plateauWidth / 2, y: groundY - peakHeight });
-                points.push({ x: peakX + plateauWidth / 2, y: groundY - peakHeight });
+                <div class="service-card">
+                    <h3><span class="service-icon">⚙️</span> Workflow Automation</h3>
+                    <p>Streamline repetitive tasks and improve operational efficiency using AI-powered automation. From data entry to customer queries, I design systems that free your team to focus on high-value work.</p>
+                </div>
                 
-                // Valley
-                if (i < numPeaks - 1) {
-                    points.push({ x: valleyX, y: groundY - valleyHeight });
-                }
+                <div class="service-card">
+                    <h3><span class="service-icon">🏢</span> Custom Enterprise Research</h3>
+                    <p>High-level technology scouting and research for larger firms. I help enterprises stay ahead of the curve by identifying emerging technologies and providing strategic implementation guidance.</p>
+                </div>
                 
-                currentX = valleyX;
-            }
+                <div class="service-card">
+                    <h3><span class="service-icon">☁️</span> Cloud Migration</h3>
+                    <p>Expert guidance on AWS cloud deployments and migrations. Leverage my experience managing large-scale cloud transitions to ensure your move to the cloud is smooth and cost-effective.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><span class="service-icon">🔐</span> Infrastructure Management</h3>
+                    <p>Server administration, systems management, and IT infrastructure optimization. Build resilient, scalable systems with enterprise-grade reliability.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><span class="service-icon">📊</span> Data Pipeline Engineering</h3>
+                    <p>Design and implement robust data workflows and automated deployment pipelines. Transform your data operations into efficient, scalable processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>Bespoke Software</h2>
+            <p class="section-subtitle">Custom applications designed to solve specific, complex problems</p>
             
-            // End at right edge below ground
-            points.push({ x: canvas.width, y: groundY });
-            points.push({ x: canvas.width, y: canvas.height });
-            points.push({ x: 0, y: canvas.height });
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Stroke Progress Tracking Application</h3>
+                        <p>
+                            A specialized health tracking application designed for stroke survivors to monitor recovery progress. This project demonstrates my ability to combine technical expertise with deep empathy and subject matter understanding.
+                        </p>
+                        <p>
+                            <strong>Scalability:</strong> Available as a streamlined version for individual use (B2C) or as a HIPAA-compliant enterprise solution licensed to rehabilitation centers and hospitals (B2B).
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Healthcare</span>
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">Enterprise-Ready</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Enterprise Automation Solutions</h3>
+                        <p>
+                            Custom automation frameworks for data workflows and job scheduling. Built with Stonebranch and Informatica, these solutions handle complex deployment pipelines and large-scale operations.
+                        </p>
+                        <p>
+                            Proven track record managing critical infrastructure for financial services and government organizations.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Automation</span>
+                            <span class="portfolio-tag">AWS</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">Enterprise</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Custom Business Applications</h3>
+                        <p>
+                            Bespoke software development tailored to your specific business needs. Whether you need a specialized tool for a single user or an enterprise-wide solution, I build software that scales with your business.
+                        </p>
+                        <p>
+                            From concept to deployment, I handle the full development lifecycle with the technical rigor you'd expect from an enterprise engineer.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Full-Stack</span>
+                            <span class="portfolio-tag">TypeScript</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">Custom Solutions</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    Ready to bring enterprise-grade AI solutions to your business? Let's discuss how I can help you scale efficiently and effectively.
+                </p>
+                
+                <div class="social-links">
+                    <a href="mailto:AlexF82@msn.com" class="social-link">
+                        <span>📧</span> AlexF82@msn.com
+                    </a>
+                    <a href="https://www.tiktok.com/@notsoquesadilla" class="social-link" target="_blank">
+                        <span>📱</span> TikTok
+                    </a>
+                    <a href="https://github.com/AlexFrancisco" class="social-link" target="_blank">
+                        <span>💻</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Alex Francisco. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Automation Architect | AI Consultant | Enterprise Solutions</p>
             
-            return points;
-        }
-        
-        // Draw mesa silhouette
-        function drawMesaSilhouette(points, color) {
-            ctx.fillStyle = color;
-            ctx.beginPath();
-            ctx.moveTo(points[0].x, points[0].y);
-            
-            for (let i = 1; i < points.length; i++) {
-                ctx.lineTo(points[i].x, points[i].y);
-            }
-            
-            ctx.closePath();
-            ctx.fill();
-        }
-        
-        // Animation state
-        let time = 0;
-        const random = new Random(12345);
-        
-        // Generate multiple layers of mesas
-        const mesaLayers = [
-            { random: new Random(111), color: '#1a0f0a', offsetY: 80 },
-            { random: new Random(222), color: '#2d1810', offsetY: 60 },
-            { random: new Random(333), color: '#4a2c1a', offsetY: 40 }
-        ];
-        
-        const silhouettes = mesaLayers.map(layer => ({
-            points: generateMesaSilhouette(layer.random, canvas.height * 0.75 - layer.offsetY, 0),
-            color: layer.color
-        }));
-        
-        function draw() {
-            time += 0.001;
-            
-            // Sky gradient - sunset colors
-            const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-            skyGradient.addColorStop(0, '#1a0d3d');
-            skyGradient.addColorStop(0.3, '#4a1a6b');
-            skyGradient.addColorStop(0.5, '#d4447e');
-            skyGradient.addColorStop(0.7, '#ff6b35');
-            skyGradient.addColorStop(0.85, '#ffb347');
-            skyGradient.addColorStop(1, '#ffd699');
-            
-            ctx.fillStyle = skyGradient;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            
-            // Draw sun
-            const sunY = canvas.height * 0.6;
-            const sunGradient = ctx.createRadialGradient(
-                canvas.width / 2, sunY, 0,
-                canvas.width / 2, sunY, 150
-            );
-            sunGradient.addColorStop(0, '#ffe4b5');
-            sunGradient.addColorStop(0.5, '#ffa500');
-            sunGradient.addColorStop(1, 'rgba(255, 165, 0, 0)');
-            
-            ctx.fillStyle = sunGradient;
-            ctx.fillRect(0, sunY - 150, canvas.width, 300);
-            
-            // Sun disk
-            ctx.fillStyle = '#ffeb3b';
-            ctx.beginPath();
-            ctx.arc(canvas.width / 2, sunY, 80, 0, Math.PI * 2);
-            ctx.fill();
-            
-            // Ground/desert floor
-            const groundY = canvas.height * 0.75;
-            const groundGradient = ctx.createLinearGradient(0, groundY, 0, canvas.height);
-            groundGradient.addColorStop(0, '#d4a574');
-            groundGradient.addColorStop(0.5, '#c9956e');
-            groundGradient.addColorStop(1, '#b8845e');
-            
-            ctx.fillStyle = groundGradient;
-            ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
-            
-            // Draw mesa silhouettes (back to front)
-            silhouettes.forEach(silhouette => {
-                drawMesaSilhouette(silhouette.points, silhouette.color);
-            });
-            
-            // Floating clouds
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
-            for (let i = 0; i < 5; i++) {
-                const x = ((time * 20 + i * 200) % (canvas.width + 200)) - 100;
-                const y = 50 + i * 40;
-                ctx.beginPath();
-                ctx.ellipse(x, y, 60, 20, 0, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        
-        // Initial draw
-        draw();
-        
-        // Redraw on resize
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            // Regenerate silhouettes for new canvas size
-            silhouettes.length = 0;
-            mesaLayers.forEach(layer => {
-                silhouettes.push({
-                    points: generateMesaSilhouette(layer.random, canvas.height * 0.75 - layer.offsetY, 0),
-                    color: layer.color
-                });
-            });
-            draw();
-        });
-    </script>
+            <div class="minecraft-link">
+                <p><a href="http://97.182.166.236:8080">🎮 Click here to visit Hood Mesa Hub Minecraft Server</a></p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

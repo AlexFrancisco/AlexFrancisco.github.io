@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Journey | Alex Francisco</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #00d4ff;
+            --secondary: #0a84ff;
+            --accent: #5e5ce6;
+            --dark-bg: #0a0a0f;
+            --dark-card: #16161d;
+            --dark-hover: #1f1f28;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--dark-bg);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(0, 212, 255, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(94, 92, 230, 0.1) 0px, transparent 50%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            background: var(--dark-card);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 0 6rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Timeline Sections */
+        .timeline-section {
+            margin-bottom: 5rem;
+        }
+        
+        .timeline-section h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            text-align: center;
+        }
+        
+        .timeline-section .subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            color: var(--primary);
+            min-width: 120px;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .timeline-content h4 {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            margin-left: 1.5rem;
+        }
+        
+        /* AI Journey Highlight */
+        .ai-journey {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(94, 92, 230, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .ai-journey h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ai-journey p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .timeline-item { flex-direction: column; gap: 0.5rem; }
+            .timeline-year { min-width: auto; }
+            .timeline-content p { padding-left: 0; text-indent: 0; margin-left: 0; }
+            .nav-links { gap: 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="nav-logo">Alex Francisco</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="journey.html" class="active">Journey</a></li>
+                <li><a href="consulting.html">Consulting</a></li>
+                <li><a href="software.html">Software</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>My Journey</h1>
+            <p>Two decades of technology leadership, followed by a transformative stroke recovery journey that revealed AI's power as assistive technology—now channeling both experiences into research and solutions that make the world more accessible</p>
+        </div>
+    </section>
+    
+    <!-- AI Journey Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2>AI Research & Recovery Journey</h2>
+            <p class="subtitle">2023 - Present | Exploring the evolving AI ecosystem</p>
+            
+            <div class="ai-journey">
+                <h3>A New Chapter: From Stroke Recovery to AI Innovation</h3>
+                <p>
+                    In 2023, following a life-altering stroke, I discovered AI's transformative potential not just as a technology, but as an assistive tool that became essential to my recovery. Unable to speak, AI became my voice—allowing me to communicate proficiently and maintain my professional capabilities during the most challenging period of my life. This experience revealed accessibility gaps that technology could bridge, and sparked a deep commitment to building solutions that help others.
+                </p>
+                <p>
+                    What began as a personal necessity evolved into a mission: understanding how AI systems work, their capabilities and limitations, and most importantly, how they can be leveraged to make the world more accessible and efficient—both for individuals facing challenges and enterprises seeking transformation. My 20+ years of enterprise technology experience, combined with firsthand knowledge of AI as assistive technology, uniquely positions me to build solutions that are both technically robust and genuinely human-centered.
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-content">
+                        <h3>Advanced AI Integration & Consulting Practice</h3>
+                        <h4>Present Focus</h4>
+                        <p>Establishing consulting practice in the Four Corners region, helping businesses integrate AI solutions while building accessible, human-centered applications. Deep research into multimodal models, agentic workflows, and enterprise AI architecture. Focused on creating technology that bridges accessibility gaps and empowers both individuals and organizations to work more effectively.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>Advanced Model Research & Application Development</h3>
+                        <h4>Hands-On Development</h4>
+                        <p>Intensive study of transformer architectures, prompt engineering methodologies, and RAG (Retrieval-Augmented Generation) systems. Experimentation with Claude, GPT-4, and open-source models. Development of custom applications leveraging LLM APIs and fine-tuning techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-content">
+                        <h3>Deep Dive into LLM Capabilities & Limitations</h3>
+                        <h4>Model Evaluation & Comparison</h4>
+                        <p>Systematic evaluation of different language models, studying their architectures, training methodologies, and practical applications. Research into AI safety, alignment, and ethical considerations. Exploration of AI workflow automation and integration patterns.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>AI as Assistive Technology</h3>
+                        <h4>Recovery & Discovery</h4>
+                        <p>Following stroke, utilized AI systems for communication assistance, enabling professional-level written communication despite speech impairment. Initial exploration of ChatGPT, Claude, and other AI tools. Profound recognition of AI's potential to bridge accessibility gaps, transform human-computer interaction, and serve as an equalizing force for those facing physical or cognitive challenges. This firsthand experience became the foundation for building technology that truly serves human needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Professional Experience Section -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <p class="subtitle">2007 - 2022 | Enterprise Technology Leadership</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2019-2022</div>
+                    <div class="timeline-content">
+                        <h3>Automation Engineer</h3>
+                        <h4>PSCU | Phoenix, AZ</h4>
+                        <p>Managed complex data automation workflows, developed advanced scripting solutions, and led cloud migration initiatives to AWS. Specialized in optimizing enterprise-scale data processing and deployment automation.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2017-2018</div>
+                    <div class="timeline-content">
+                        <h3>Technical Support Manager</h3>
+                        <h4>Orion Health | Scottsdale, AZ</h4>
+                        <p>Led workflow automation initiatives for healthcare IT systems, managed system performance optimization, and architected AWS cloud deployments. This healthcare technology experience informs my approach to building accessible, mission-critical applications.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2016</div>
+                    <div class="timeline-content">
+                        <h3>Senior Automation Engineer</h3>
+                        <h4>PSCU | Phoenix, AZ</h4>
+                        <p>Designed sophisticated deployment pipelines, implemented enterprise job scheduling systems, and developed comprehensive data automation frameworks for financial services infrastructure.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2014-2015</div>
+                    <div class="timeline-content">
+                        <h3>Core Services Engineer</h3>
+                        <h4>PSCU | Phoenix, AZ</h4>
+                        <p>Managed critical IT infrastructure, automated batch job processing, and designed efficient data workflows supporting millions of financial transactions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2013</div>
+                    <div class="timeline-content">
+                        <h3>PC Technician</h3>
+                        <h4>Power-One | Phoenix, AZ</h4>
+                        <p>Maintained enterprise Windows environments, provided comprehensive hardware/software troubleshooting, and supported IT infrastructure operations.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2008-2010</div>
+                    <div class="timeline-content">
+                        <h3>PC Technician</h3>
+                        <h4>San Juan County Sheriff's Office | New Mexico</h4>
+                        <p>Deployed and maintained Mobile Data Terminals (MDTs), managed in-car video systems, and trained law enforcement officers on records management software. Provided critical IT support for public safety operations.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2007</div>
+                    <div class="timeline-content">
+                        <h3>IT Technician</h3>
+                        <h4>San Juan County IT Department | New Mexico</h4>
+                        <p>Provided comprehensive IT support, basic networking, and technology assistance to county employees, beginning my foundation in enterprise IT services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer style="padding: 3rem 1rem; text-align: center; color: var(--text-secondary); font-size: 0.9rem; background: var(--dark-bg); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="container">
+            <p>&copy; 2026 Alex Francisco. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Automation Architect | AI Consultant | Enterprise Solutions</p>
+        </div>
+    </footer>
+</body>
+</html>
