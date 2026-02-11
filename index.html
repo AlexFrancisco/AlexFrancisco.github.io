@@ -498,18 +498,6 @@
     </style>
 </head>
 <body>
-    <!-- Contact Bar -->
-    <div style="background: rgba(10, 10, 15, 0.6); backdrop-filter: blur(5px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 0.5rem 0; position: relative; z-index: 10;">
-        <div class="container" style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; font-size: 0.85rem; opacity: 0.7;">
-            <a href="mailto:alex@alexfrancisco.dev" style="color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: flex; align-items: center; gap: 0.4rem;" onmouseover="this.style.color='var(--primary)'; this.style.opacity='1'" onmouseout="this.style.color='var(--text-secondary)'; this.style.opacity='0.7'">
-                <span style="font-size: 0.75rem;">📧</span> alex@alexfrancisco.dev
-            </a>
-            <a href="https://github.com/AlexFrancisco" target="_blank" style="color: var(--text-secondary); text-decoration: none; transition: all 0.3s; display: flex; align-items: center; gap: 0.4rem;" onmouseover="this.style.color='var(--primary)'; this.style.opacity='1'" onmouseout="this.style.color='var(--text-secondary)'; this.style.opacity='0.7'">
-                <span style="font-size: 0.75rem;">💻</span> GitHub
-            </a>
-        </div>
-    </div>
-    
     <section class="landing">
         <div class="container">
             <h1 class="logo">Alex Francisco</h1>
@@ -540,6 +528,19 @@
                     <h2>Hood Mesa Hub</h2>
                     <p>Minecraft Server<br>Evil Lab</p>
                 </a>
+                
+                <div class="landing-card" style="cursor: default;">
+                    <div class="card-icon">📬</div>
+                    <h2>Let's Connect</h2>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+                        <a href="mailto:alex@alexfrancisco.dev" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.9rem;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                            <span>📧</span> Email
+                        </a>
+                        <a href="https://github.com/AlexFrancisco" target="_blank" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.9rem;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+                            <span>💻</span> GitHub
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
