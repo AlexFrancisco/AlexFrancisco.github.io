@@ -551,6 +551,96 @@
                 
                 <div class="portfolio-card">
                     <div class="portfolio-card-content">
+                        <h3>FLUX AI Image Generation Worker</h3>
+                        <p>
+                            <strong>Description:</strong> Containerized AI image generation service using FLUX.1 Stable Diffusion XL checkpoint deployed on RunPod serverless infrastructure. Implements advanced LoRA fine-tuning with multiple pre-configured LoRAs for enhanced output quality.
+                        </p>
+                        <p>
+                            <strong>Technical Implementation:</strong> Built with PyTorch 2.1.0 and CUDA 12.1 support, featuring xformers for memory-efficient attention mechanisms. Two-stage pipeline with base model and refiner for high-quality results. Supports multiple scheduler options including PNDM, KLMS, DDIM, K_EULER, and DPMSolverMultistep.
+                        </p>
+                        <p>
+                            <strong>Key Features:</strong> Automatic model downloading from CivitAI and Hugging Face, configurable generation parameters (dimensions, steps, guidance scale), API endpoint for text-to-image generation, production-ready Docker containerization.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">PyTorch</span>
+                            <span class="portfolio-tag">FLUX.1</span>
+                            <span class="portfolio-tag">Docker</span>
+                            <span class="portfolio-tag">RunPod</span>
+                            <span class="portfolio-tag">CUDA</span>
+                            <span class="portfolio-tag">AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Catholyte AI-Curated Content Platform</h3>
+                        <p>
+                            <strong>Description:</strong> Full-stack web application featuring an AI-curated database with modular architecture. Delivers dynamic content across multiple domains including blog, health, finance, and world news with real-time caching.
+                        </p>
+                        <p>
+                            <strong>Architecture:</strong> React frontend with React Router for navigation and Axios for API communication. Node.js/Express backend with PostgreSQL for data persistence and Redis for high-performance caching. Modular design allows independent scaling of content modules.
+                        </p>
+                        <p>
+                            <strong>Performance Optimization:</strong> Redis caching layer provides sub-millisecond response times. Automated cache refresh endpoint for content updates. Backend scrapes and caches data on startup for immediate availability.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">Express</span>
+                            <span class="portfolio-tag">PostgreSQL</span>
+                            <span class="portfolio-tag">Redis</span>
+                            <span class="portfolio-tag">Full-Stack</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>VR Diagram Application</h3>
+                        <p>
+                            <strong>Description:</strong> Immersive 3D diagramming tool designed for VR headsets, enabling spatial visualization and interaction in virtual reality environments. Leverages WebXR for cross-platform VR support.
+                        </p>
+                        <p>
+                            <strong>Technology Stack:</strong> Built with TypeScript for type safety, React Three Fiber for declarative 3D scene management, and Three.js for advanced 3D graphics rendering. Comprehensive testing suite ensures reliability across VR devices.
+                        </p>
+                        <p>
+                            <strong>Features:</strong> Multi-page support for complex diagrams, real-time 3D manipulation, VR controller integration, WebXR compatibility with major VR headsets. Demonstrates cutting-edge web technologies and 3D graphics programming.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">TypeScript</span>
+                            <span class="portfolio-tag">Three.js</span>
+                            <span class="portfolio-tag">React Three Fiber</span>
+                            <span class="portfolio-tag">WebXR</span>
+                            <span class="portfolio-tag">VR</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>AI-Managed Website Deployment System</h3>
+                        <p>
+                            <strong>Description:</strong> Automated website deployment and content management system powered by OpenAI. Dynamically generates website structure, AI-powered content, and handles GitHub Pages deployment with minimal human intervention.
+                        </p>
+                        <p>
+                            <strong>Automation Pipeline:</strong> Python-based system that clears outdated content, generates necessary folders and pages, updates root index.html, and processes AI instructions from input files. Integrates OpenAI API for content generation and BeautifulSoup for HTML parsing.
+                        </p>
+                        <p>
+                            <strong>Use Cases:</strong> Ideal for content-heavy sites requiring frequent updates, personal blogs with AI-assisted writing, or rapid prototyping of web content. Self-maintaining documentation and structured content organization.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">OpenAI</span>
+                            <span class="portfolio-tag">BeautifulSoup</span>
+                            <span class="portfolio-tag">Automation</span>
+                            <span class="portfolio-tag">GitHub Pages</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
                         <h3>Custom Business Applications</h3>
                         <p>
                             Bespoke software development tailored to your specific business needs. Whether you need a specialized tool for a single user or an enterprise-wide solution, I build software that scales with your business.
@@ -613,11 +703,13 @@
                         <li>AWS (EC2, S3, Lambda, RDS)</li>
                         <li>Azure</li>
                         <li>Google Cloud Platform (GCP)</li>
+                        <li>RunPod Serverless (GPU)</li>
                         <li>vSphere / VMware</li>
                         <li>RedHat Enterprise Linux</li>
                         <li>SUSE / SLES</li>
                         <li>Ubuntu</li>
                         <li>Windows Server</li>
+                        <li>Docker / Containerization</li>
                         <li>Linux Administration</li>
                     </ul>
                 </div>
@@ -625,14 +717,19 @@
                 <div class="skill-card">
                     <h3>AI & Machine Learning</h3>
                     <ul class="skill-list">
+                        <li>PyTorch (CUDA-optimized)</li>
                         <li>TensorFlow</li>
+                        <li>FLUX.1 Stable Diffusion</li>
                         <li>Hugging Face Diffusers</li>
                         <li>Diffusion Models & Libraries</li>
+                        <li>LoRA Fine-Tuning</li>
+                        <li>xformers (Memory Optimization)</li>
                         <li>LLM Evaluation & Integration</li>
                         <li>Prompt Engineering</li>
                         <li>AI Workflow Design</li>
                         <li>Model Fine-Tuning</li>
                         <li>RAG Systems</li>
+                        <li>Jupyter Notebooks</li>
                     </ul>
                 </div>
                 
@@ -675,6 +772,8 @@
                     <h3>Web Development</h3>
                     <ul class="skill-list">
                         <li>React / React Native</li>
+                        <li>Three.js / React Three Fiber</li>
+                        <li>WebXR (VR/AR)</li>
                         <li>Express.js</li>
                         <li>REST APIs</li>
                         <li>HTML5 / CSS3</li>
