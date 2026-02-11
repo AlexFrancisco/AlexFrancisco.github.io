@@ -137,20 +137,24 @@
         
         /* Hero Section */
         .hero {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(94, 92, 230, 0.1) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            padding: 6rem 0 4rem;
             text-align: center;
-            padding: 4rem 0 6rem;
         }
         
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .hero p {
+        .hero .tagline {
             font-size: 1.3rem;
             color: var(--text-secondary);
             max-width: 800px;
@@ -271,7 +275,7 @@
     <section class="hero">
         <div class="container">
             <h1>My Journey</h1>
-            <p>Two decades of technology leadership, followed by a transformative stroke recovery journey that revealed AI's power as assistive technology—now channeling both experiences into research and solutions that make the world more accessible</p>
+            <p class="tagline">Two decades of technology leadership, followed by a transformative stroke recovery journey that revealed AI's power as assistive technology—now channeling both experiences into research and solutions that make the world more accessible</p>
         </div>
     </section>
     
