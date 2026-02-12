@@ -103,6 +103,7 @@ nav .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
 }
 
 nav .logo {
@@ -354,6 +355,25 @@ section h2 {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
+}
+
+/* Timeline Section (journey.html) */
+.timeline-section {
+    padding: 3rem 0;
+}
+
+.timeline-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    text-align: center;
+}
+
+.timeline-section .subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
 
 /* Timeline Styles */
