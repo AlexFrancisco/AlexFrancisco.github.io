@@ -3,189 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Alex Francisco - Automation Architect & AI Consultant providing enterprise AI solutions, cloud migration, and bespoke software development in the Four Corners region and nationwide.">
-    <title>Alex Francisco | Enterprise Tech & AI Solutions</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <meta http-equiv="refresh" content="5;url=http://no healthy upstream:8080">
+    <title>Hood Mesa Hub - Desert Portal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Georgia', serif;
+        }
+        
+        #desert-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            animation: fadeInDown 1s ease-out;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        .redirect-box {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .ip-display {
+            font-size: 1.5rem;
+            font-family: 'Courier New', monospace;
+            color: #ffd700;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .countdown {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .manual-link {
+            margin-top: 1.5rem;
+        }
+        
+        .manual-link a {
+            color: #ffd700;
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 50px;
+            border: 2px solid #ffd700;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .manual-link a:hover {
+            background: rgba(255, 215, 0, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .redirect-box { padding: 1.5rem 2rem; }
+        }
+    </style>
 </head>
-<body class="home">
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <a href="index.html" class="logo">Alex Francisco</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a href="journey.html" class="dropdown-toggle">Journey</a>
-                    <div class="dropdown-menu">
-                        <a href="journey.html#ai-journey">AI Journey</a>
-                        <a href="journey.html#experience">Experience</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="consulting.html" class="dropdown-toggle">Consulting</a>
-                    <div class="dropdown-menu">
-                        <a href="consulting.html#about">About</a>
-                        <a href="consulting.html#expertise">Expertise</a>
-                        <a href="consulting.html#experience">Experience</a>
-                        <a href="consulting.html#services">Services</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="training.html" class="dropdown-toggle">Training</a>
-                    <div class="dropdown-menu">
-                        <a href="training.html#approach">Approach</a>
-                        <a href="training.html#services">Services</a>
-                        <a href="training.html#benefits">Who Benefits</a>
-                        <a href="training.html#delivery">Delivery</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="software.html" class="dropdown-toggle">Software</a>
-                    <div class="dropdown-menu">
-                        <a href="software.html#portfolio">Portfolio</a>
-                        <a href="software.html#skills">Technical Skills</a>
-                        <a href="software.html#creative">Creative Work</a>
-                    </div>
-                </li>
-                <li><a href="mailto:alexf82@msn.com" style="color: var(--primary);">Let's Connect</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
-                <span>☰</span>
-            </button>
-        </div>
-    </nav>
-
-    <section class="landing">
-        <div class="container">
-            <h1 class="logo">Alex Francisco</h1>
-            <p class="tagline">Automation Architect | AI Consultant | Software Developer<br>
-            <span style="font-size: 0.9em; opacity: 0.8;">Researching & implementing the evolving AI ecosystem</span></p>
-            
-            <div class="cards-grid">
-                <a href="journey.html" class="landing-card">
-                    <div class="card-icon">🚀</div>
-                    <h2>My Journey</h2>
-                    <p>20+ years building enterprise systems—now helping businesses harness AI through personal experience using it to overcome physical challenges</p>
-                </a>
-                
-                <a href="consulting.html" class="landing-card">
-                    <div class="card-icon">🤖</div>
-                    <h2>AI Consulting</h2>
-                    <p>Strategic AI integration, workflow automation, and enterprise transformation</p>
-                </a>
-                
-                <a href="training.html" class="landing-card">
-                    <div class="card-icon">🎓</div>
-                    <h2>AI Training</h2>
-                    <p>Hands-on AI training customized to your industry, from executive briefings to deep technical workshops</p>
-                </a>
-                
-                <a href="software.html" class="landing-card">
-                    <div class="card-icon">💻</div>
-                    <h2>Bespoke Software</h2>
-                    <p>Bespoke software built with enterprise rigor and real-world empathy</p>
-                </a>
-                
-                <div class="landing-card" style="cursor: default; pointer-events: auto;">
-                    <div class="card-icon">📬</div>
-                    <h2>Let's Connect</h2>
-                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
-                        <a href="mailto:alexf82@msn.com" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.9rem; padding: 0.5rem; cursor: pointer; position: relative; z-index: 2;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
-                            <span>📧</span> alexf82@msn.com
-                        </a>
-                        <a href="https://github.com/AlexFrancisco" target="_blank" style="color: var(--text-secondary); text-decoration: none; transition: color 0.3s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.9rem; padding: 0.5rem; cursor: pointer; position: relative; z-index: 2;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--text-secondary)'">
-                            <span>💻</span> GitHub Profile
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<body>
+    <canvas id="desert-canvas"></canvas>
     
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>
-                    With over 20 years of technology experience spanning public service, healthcare IT, and financial services, I specialize in building systems that help businesses scale. Following a stroke in 2023, my focus shifted to developing bespoke AI and software solutions—combining enterprise-grade technical expertise with unique firsthand experience using AI as assistive technology to rebuild my own capabilities.
-                </p>
-                <p>
-                    Today, I bring that expertise to the Four Corners region and remotely across the country, helping businesses transition into the AI era through <a href="consulting.html" style="color: var(--primary);">consulting</a>, <a href="training.html" style="color: var(--primary);">training</a>, and <a href="software.html" style="color: var(--primary);">custom software development</a>.
-                </p>
+    <div class="content">
+        <h1>HOOD MESA HUB</h1>
+        <div class="subtitle">Welcome to the Desert Portal</div>
+        
+        <div class="redirect-box">
+            <div class="ip-display">no healthy upstream:8080</div>
+            <div class="countdown">Entering the mesa in <span id="timer">5</span> seconds...</div>
+            <div class="manual-link">
+                <a href="http://no healthy upstream:8080">Enter Now</a>
             </div>
         </div>
-    </section>
+    </div>
     
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Let's Connect</h2>
-            <div class="contact-content">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                    Ready to bring enterprise-grade AI solutions to your business? Let's discuss how I can help you scale efficiently and effectively.
-                </p>
-                
-                <div class="social-links">
-                    <a href="mailto:alexf82@msn.com" class="social-link">
-                        <span>📧</span> alexf82@msn.com
-                    </a>
-                    <a href="https://www.tiktok.com/@notsoquesadilla" class="social-link" target="_blank">
-                        <span>📱</span> TikTok
-                    </a>
-                    <a href="https://github.com/AlexFrancisco" class="social-link" target="_blank">
-                        <span>💻</span> GitHub
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Alex Francisco. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Automation Architect | AI Consultant | Enterprise Solutions</p>
-            
-            <div class="minecraft-link">
-                <p><a href="http://97.182.166.236:8080">🎮 Click here to visit Hood Mesa Hub Minecraft Server</a></p>
-            </div>
-        </div>
-    </footer>
     <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.mobile-menu-toggle');
-            const navMenu = document.querySelector('nav ul');
-            const dropdowns = document.querySelectorAll('.dropdown');
+        // Countdown timer
+        let seconds = 5;
+        const timerElement = document.getElementById('timer');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            if (seconds > 0) {
+                timerElement.textContent = seconds;
+            } else {
+                clearInterval(countdown);
+                timerElement.textContent = '0';
+                document.querySelector('.countdown').textContent = 'Transporting now...';
+            }
+        }, 1000);
+        
+        // Desert sunset scene with dynamic mesas
+        const canvas = document.getElementById('desert-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Random number generator with seed for consistent mesas
+        class Random {
+            constructor(seed) {
+                this.seed = seed;
+            }
+            next() {
+                this.seed = (this.seed * 9301 + 49297) % 233280;
+                return this.seed / 233280;
+            }
+        }
+        
+        // Generate mesa silhouette path
+        function generateMesaSilhouette(random, groundY, layerIndex) {
+            const points = [];
+            const numPeaks = 5 + Math.floor(random.next() * 4);
             
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    navMenu.classList.toggle('mobile-menu-open');
-                    this.setAttribute('aria-expanded', navMenu.classList.contains('mobile-menu-open'));
-                });
+            // Start from left edge below ground
+            points.push({ x: 0, y: groundY });
+            
+            let currentX = 0;
+            
+            for (let i = 0; i < numPeaks; i++) {
+                const segmentWidth = canvas.width / numPeaks;
+                const peakX = currentX + segmentWidth / 2 + (random.next() - 0.5) * segmentWidth * 0.3;
+                const valleyX = currentX + segmentWidth;
+                
+                // Mesa height varies
+                const peakHeight = 80 + random.next() * 200;
+                const valleyHeight = 30 + random.next() * 80;
+                
+                // Add plateau (flat top)
+                const plateauWidth = 40 + random.next() * 80;
+                points.push({ x: peakX - plateauWidth / 2, y: groundY - peakHeight });
+                points.push({ x: peakX + plateauWidth / 2, y: groundY - peakHeight });
+                
+                // Valley
+                if (i < numPeaks - 1) {
+                    points.push({ x: valleyX, y: groundY - valleyHeight });
+                }
+                
+                currentX = valleyX;
             }
             
-            // Mobile dropdown toggle
-            dropdowns.forEach(dropdown => {
-                const toggle = dropdown.querySelector('.dropdown-toggle');
-                if (toggle) {
-                    toggle.addEventListener('click', function(e) {
-                        if (window.innerWidth <= 768) {
-                            e.preventDefault();
-                            dropdown.classList.toggle('mobile-dropdown-open');
-                        }
-                    });
-                }
+            // End at right edge below ground
+            points.push({ x: canvas.width, y: groundY });
+            points.push({ x: canvas.width, y: canvas.height });
+            points.push({ x: 0, y: canvas.height });
+            
+            return points;
+        }
+        
+        // Draw mesa silhouette
+        function drawMesaSilhouette(points, color) {
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(points[0].x, points[0].y);
+            
+            for (let i = 1; i < points.length; i++) {
+                ctx.lineTo(points[i].x, points[i].y);
+            }
+            
+            ctx.closePath();
+            ctx.fill();
+        }
+        
+        // Animation state
+        let time = 0;
+        const random = new Random(12345);
+        
+        // Generate multiple layers of mesas
+        const mesaLayers = [
+            { random: new Random(111), color: '#1a0f0a', offsetY: 80 },
+            { random: new Random(222), color: '#2d1810', offsetY: 60 },
+            { random: new Random(333), color: '#4a2c1a', offsetY: 40 }
+        ];
+        
+        const silhouettes = mesaLayers.map(layer => ({
+            points: generateMesaSilhouette(layer.random, canvas.height * 0.75 - layer.offsetY, 0),
+            color: layer.color
+        }));
+        
+        function draw() {
+            time += 0.001;
+            
+            // Sky gradient - sunset colors
+            const skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            skyGradient.addColorStop(0, '#1a0d3d');
+            skyGradient.addColorStop(0.3, '#4a1a6b');
+            skyGradient.addColorStop(0.5, '#d4447e');
+            skyGradient.addColorStop(0.7, '#ff6b35');
+            skyGradient.addColorStop(0.85, '#ffb347');
+            skyGradient.addColorStop(1, '#ffd699');
+            
+            ctx.fillStyle = skyGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw sun
+            const sunY = canvas.height * 0.6;
+            const sunGradient = ctx.createRadialGradient(
+                canvas.width / 2, sunY, 0,
+                canvas.width / 2, sunY, 150
+            );
+            sunGradient.addColorStop(0, '#ffe4b5');
+            sunGradient.addColorStop(0.5, '#ffa500');
+            sunGradient.addColorStop(1, 'rgba(255, 165, 0, 0)');
+            
+            ctx.fillStyle = sunGradient;
+            ctx.fillRect(0, sunY - 150, canvas.width, 300);
+            
+            // Sun disk
+            ctx.fillStyle = '#ffeb3b';
+            ctx.beginPath();
+            ctx.arc(canvas.width / 2, sunY, 80, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Ground/desert floor
+            const groundY = canvas.height * 0.75;
+            const groundGradient = ctx.createLinearGradient(0, groundY, 0, canvas.height);
+            groundGradient.addColorStop(0, '#d4a574');
+            groundGradient.addColorStop(0.5, '#c9956e');
+            groundGradient.addColorStop(1, '#b8845e');
+            
+            ctx.fillStyle = groundGradient;
+            ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
+            
+            // Draw mesa silhouettes (back to front)
+            silhouettes.forEach(silhouette => {
+                drawMesaSilhouette(silhouette.points, silhouette.color);
             });
             
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768 && !e.target.closest('nav') && navMenu.classList.contains('mobile-menu-open')) {
-                    navMenu.classList.remove('mobile-menu-open');
-                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-                }
+            // Floating clouds
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            for (let i = 0; i < 5; i++) {
+                const x = ((time * 20 + i * 200) % (canvas.width + 200)) - 100;
+                const y = 50 + i * 40;
+                ctx.beginPath();
+                ctx.ellipse(x, y, 60, 20, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Initial draw
+        draw();
+        
+        // Redraw on resize
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            // Regenerate silhouettes for new canvas size
+            silhouettes.length = 0;
+            mesaLayers.forEach(layer => {
+                silhouettes.push({
+                    points: generateMesaSilhouette(layer.random, canvas.height * 0.75 - layer.offsetY, 0),
+                    color: layer.color
+                });
             });
+            draw();
         });
     </script>
 </body>
