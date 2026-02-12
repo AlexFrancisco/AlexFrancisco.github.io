@@ -657,6 +657,47 @@ footer {
     color: var(--gold);
 }
 
+/* Jump To Navigation */
+.jump-nav {
+    background: rgba(22, 22, 29, 0.6);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 1rem 1.5rem;
+    margin: 2rem auto;
+    max-width: 900px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.jump-nav-title {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.jump-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+}
+
+.jump-nav-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.25rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.jump-nav-links a:hover {
+    color: var(--secondary);
+    border-bottom-color: var(--secondary);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     nav ul {
