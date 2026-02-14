@@ -100,6 +100,76 @@
             transform: scale(1.05);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
         }
+
+        .promo-section {
+            margin-top: 2.5rem;
+            width: min(900px, 92vw);
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            padding: 1.5rem 1.75rem;
+            backdrop-filter: blur(8px);
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .promo-title {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.9rem;
+        }
+
+        .promo-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 14px;
+            padding: 0.9rem 1rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .promo-logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.92);
+            border-radius: 10px;
+            padding: 0.35rem 0.6rem;
+            width: fit-content;
+        }
+
+        .promo-logo {
+            height: 22px;
+            width: auto;
+            display: block;
+        }
+
+        .promo-card a {
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .promo-card p {
+            margin-top: 0.35rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
         
         @keyframes fadeInDown {
             from {
@@ -144,6 +214,61 @@
                 <a href="http://97.182.166.236:8080">Enter Now</a>
             </div>
         </div>
+
+        <section class="promo-section" aria-label="AI tools and platforms">
+            <div class="promo-title">Tools I Use and Recommend</div>
+            <div class="promo-grid">
+                <div class="promo-card">
+                    <div class="promo-logo-wrap">
+                        <img class="promo-logo" src="https://brand.github.com/_next/static/media/logo-03.cc5e5332.png" alt="GitHub logo" loading="lazy">
+                    </div>
+                    <a href="https://github.com/features/copilot">GitHub Copilot</a>
+                    <p>Daily driver for coding speed and refactors.</p>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-logo-wrap">
+                        <img class="promo-logo" src="https://claude.ai/favicon.ico" alt="Claude logo" loading="lazy">
+                    </div>
+                    <a href="https://claude.ai">Claude</a>
+                    <p>Strong reasoning partner for complex workflows.</p>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-logo-wrap">
+                        <img class="promo-logo" src="https://gemini.google.com/favicon.ico" alt="Gemini logo" loading="lazy">
+                    </div>
+                    <a href="https://gemini.google.com">Gemini</a>
+                    <p>Versatile model for research and synthesis.</p>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-logo-wrap">
+                        <img class="promo-logo" src="https://cdn.prod.website-files.com/67d20fb9f56ff2ec6a7a657d/683cd0ee11462aef4a016ef6_runpod%20lowercase.webp" alt="RunPod logo" loading="lazy">
+                    </div>
+                    <a href="https://runpod.io">RunPod</a>
+                    <p>On-demand GPU compute for fast experiments.</p>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-logo-wrap">
+                        <img class="promo-logo" src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-with-title.svg?download=true" alt="Hugging Face logo" loading="lazy">
+                    </div>
+                    <a href="https://huggingface.co">Hugging Face</a>
+                    <p>Models, datasets, and deployment tools.</p>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-logo-wrap">
+                        <img class="promo-logo" src="https://civitai.com/favicon.ico" alt="CivitAI logo" loading="lazy">
+                    </div>
+                    <a href="https://civitai.com">CivitAI</a>
+                    <p>Community model discovery and inspiration.</p>
+                </div>
+                <div class="promo-card">
+                    <div class="promo-logo-wrap">
+                        <img class="promo-logo" src="https://bfl.ai/brand/logotype-white.svg" alt="Black Forest Labs logo" loading="lazy">
+                    </div>
+                    <a href="https://bfl.ai/models/flux-pro">FLUX.1</a>
+                    <p>High-quality image generation foundation.</p>
+                </div>
+            </div>
+        </section>
     </div>
     
     <script>
