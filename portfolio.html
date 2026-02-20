@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alex Francisco's project portfolio - AI/ML pipelines, full-stack web applications, enterprise automation, VR development, and more. 20+ years of engineering experience.">
+    <title>Portfolio | Alex Francisco</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Alex Francisco</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="journey.html" class="dropdown-toggle">Journey</a>
+                    <div class="dropdown-menu">
+                        <a href="journey.html#ai-journey">AI Journey</a>
+                        <a href="journey.html#experience">Experience</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="portfolio.html" class="dropdown-toggle">Portfolio</a>
+                    <div class="dropdown-menu">
+                        <a href="portfolio.html#portfolio">Projects</a>
+                        <a href="portfolio.html#skills">Technical Skills</a>
+                        <a href="portfolio.html#creative">Creative Work</a>
+                    </div>
+                </li>
+                <li><a href="mailto:alexf82@msn.com" style="color: var(--primary);">Let's Connect</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span>☰</span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Portfolio</h1>
+            <p class="tagline">Projects built with enterprise rigor and a passion for solving real problems</p>
+        </div>
+    </section>
+    
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h2>Projects</h2>
+            <p class="section-subtitle">A selection of work spanning AI/ML, full-stack development, enterprise automation, and creative tech</p>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card github-card github-card-wide">
+                    <div class="portfolio-card-content">
+                        <div>
+                            <h3>💻 Open Source & Projects</h3>
+                            <p>
+                                See my actual work. My public repositories showcase production-quality code, creative problem-solving, and my approach to building software that's both powerful and maintainable.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <strong>What You'll Find:</strong> Scripts, automation tools, web applications, and technical experiments showcasing my development philosophy and coding standards.
+                            </p>
+                            <div style="margin-top: 1.5rem;">
+                                <a href="https://github.com/AlexFrancisco" target="_blank" class="btn-github">
+                                    <span>🔗</span> View GitHub Profile
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <span class="portfolio-tag">Open Source</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">JavaScript</span>
+                            <span class="portfolio-tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Stroke Progress Tracking Application</h3>
+                        <p>
+                            A specialized health tracking application designed for stroke survivors to monitor recovery progress. Built from personal experience following my stroke in 2023—it's software designed by someone who understands the struggle firsthand.
+                        </p>
+                        <p>
+                            <strong>Background:</strong> Addresses real needs in the stroke recovery process with features designed for accessibility and ease of use. Built with HIPAA-compliant architecture to allow for future clinical use cases.
+                        </p>
+                        <div style="margin-top: 1.5rem;">
+                            <a href="http://97.188.64.42:3001/" target="_blank" class="btn-github">
+                                <span>🔗</span> Try Live Demo
+                            </a>
+                        </div>
+                        <div>
+                            <span class="portfolio-tag">Healthcare</span>
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">Accessibility</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Enterprise Automation Solutions</h3>
+                        <p>
+                            Custom automation frameworks for data workflows and job scheduling. Built with Stonebranch, Informatica PowerCenter, IBM Sterling File Gateway, and GoAnywhere MFT, these solutions handle complex deployment pipelines and large-scale operations.
+                        </p>
+                        <p>
+                            <strong>Experience:</strong> Proven track record managing critical infrastructure for financial services and government organizations, reliably processing millions of financial transactions daily.
+                        </p>
+                        <p>
+                            <strong>Expertise:</strong> Designed sophisticated systems for PSCU (now Velera), a leading credit union service organization, handling batch processing, cloud migrations, secure file transfers, and automated deployments.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Automation</span>
+                            <span class="portfolio-tag">AWS</span>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">Enterprise</span>
+                            <span class="portfolio-tag">DevOps</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>FLUX AI Image Generation Worker</h3>
+                        <p>
+                            Production-grade AI image generation as a service. This isn't a simple wrapper—it's a fully optimized, containerized pipeline built for scale and quality. 
+                        </p>
+                        <p>
+                            <strong>Description:</strong> Containerized AI image generation service using FLUX.1 Stable Diffusion XL checkpoint deployed on RunPod serverless infrastructure. Implements advanced LoRA fine-tuning with multiple pre-configured LoRAs for enhanced output quality.
+                        </p>
+                        <p>
+                            <strong>Technical Implementation:</strong> Built with PyTorch 2.1.0 and CUDA 12.1 support, featuring xformers for memory-efficient attention mechanisms. Two-stage pipeline with base model and refiner for high-quality results. Supports multiple scheduler options including PNDM, KLMS, DDIM, K_EULER, and DPMSolverMultistep.
+                        </p>
+                        <p>
+                            <strong>Key Features:</strong> Automatic model downloading from CivitAI and Hugging Face, configurable generation parameters (dimensions, steps, guidance scale), API endpoint for text-to-image generation, production-ready Docker containerization.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">PyTorch</span>
+                            <span class="portfolio-tag">FLUX.1</span>
+                            <span class="portfolio-tag">Docker</span>
+                            <span class="portfolio-tag">RunPod</span>
+                            <span class="portfolio-tag">CUDA</span>
+                            <span class="portfolio-tag">AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>Catholyte AI-Curated Content Platform</h3>
+                        <p>
+                            <strong>Description:</strong> Full-stack web application featuring an AI-curated database with modular architecture. Delivers dynamic content across multiple domains including blog, health, finance, and world news with real-time caching.
+                        </p>
+                        <p>
+                            <strong>Architecture:</strong> React frontend with React Router for navigation and Axios for API communication. Node.js/Express backend with PostgreSQL for data persistence and Redis for high-performance caching. Modular design allows independent scaling of content modules.
+                        </p>
+                        <p>
+                            <strong>Performance Optimization:</strong> Redis caching layer provides sub-millisecond response times. Automated cache refresh endpoint for content updates. Backend scrapes and caches data on startup for immediate availability.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">React</span>
+                            <span class="portfolio-tag">Node.js</span>
+                            <span class="portfolio-tag">Express</span>
+                            <span class="portfolio-tag">PostgreSQL</span>
+                            <span class="portfolio-tag">Redis</span>
+                            <span class="portfolio-tag">Full-Stack</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>VR Diagram Application</h3>
+                        <p>
+                            <strong>Description:</strong> Immersive 3D diagramming tool designed for VR headsets, enabling spatial visualization and interaction in virtual reality environments. Leverages WebXR for cross-platform VR support.
+                        </p>
+                        <p>
+                            <strong>Technology Stack:</strong> Built with TypeScript for type safety, React Three Fiber for declarative 3D scene management, and Three.js for advanced 3D graphics rendering. Comprehensive testing suite ensures reliability across VR devices.
+                        </p>
+                        <p>
+                            <strong>Features:</strong> Multi-page support for complex diagrams, real-time 3D manipulation, VR controller integration, WebXR compatibility with major VR headsets. Demonstrates cutting-edge web technologies and 3D graphics programming.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">TypeScript</span>
+                            <span class="portfolio-tag">Three.js</span>
+                            <span class="portfolio-tag">React Three Fiber</span>
+                            <span class="portfolio-tag">WebXR</span>
+                            <span class="portfolio-tag">VR</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-card">
+                    <div class="portfolio-card-content">
+                        <h3>AI-Managed Website Deployment System</h3>
+                        <p>
+                            <strong>Description:</strong> Automated website deployment and content management system powered by OpenAI. Dynamically generates website structure, AI-powered content, and handles GitHub Pages deployment with minimal human intervention.
+                        </p>
+                        <p>
+                            <strong>Automation Pipeline:</strong> Python-based system that clears outdated content, generates necessary folders and pages, updates root index.html, and processes AI instructions from input files. Integrates OpenAI API for content generation and BeautifulSoup for HTML parsing.
+                        </p>
+                        <p>
+                            <strong>Use Cases:</strong> Ideal for content-heavy sites requiring frequent updates, personal blogs with AI-assisted writing, or rapid prototyping of web content. Self-maintaining documentation and structured content organization.
+                        </p>
+                        <div>
+                            <span class="portfolio-tag">Python</span>
+                            <span class="portfolio-tag">OpenAI</span>
+                            <span class="portfolio-tag">BeautifulSoup</span>
+                            <span class="portfolio-tag">Automation</span>
+                            <span class="portfolio-tag">GitHub Pages</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2>Technical Proficiencies</h2>
+            <p class="section-subtitle">20+ years across public service, healthcare, finance, and cutting-edge AI research. This breadth means I can architect solutions at any scale and understand the unique constraints of different industries.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>AI Research & Strategy</h3>
+                    <ul class="skill-list">
+                        <li>LLM Evaluation & Integration</li>
+                        <li>Prompt Engineering</li>
+                        <li>TensorFlow</li>
+                        <li>Hugging Face Diffusers</li>
+                        <li>PyTorch (CUDA-optimized)</li>
+                        <li>FLUX.1 Stable Diffusion</li>
+                        <li>LoRA Fine-Tuning</li>
+                        <li>xformers (Memory Optimization)</li>
+                        <li>AI Workflow Design</li>
+                        <li>Enterprise AI Integration</li>
+                        <li>Model Fine-Tuning</li>
+                        <li>RAG Systems</li>
+                        <li>Jupyter Notebooks</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>Python (Advanced)</li>
+                        <li>C / C++</li>
+                        <li>C# / .NET</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>Haskell</li>
+                        <li>Bash / Shell Scripting</li>
+                        <li>PowerShell</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Cloud & Virtualization</h3>
+                    <ul class="skill-list">
+                        <li>AWS (EC2, S3, IAM)</li>
+                        <li>Azure</li>
+                        <li>Google Cloud Platform (GCP)</li>
+                        <li>RunPod Serverless (GPU)</li>
+                        <li>VMware vSphere</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Operating Systems</h3>
+                    <ul class="skill-list">
+                        <li>RedHat Enterprise Linux</li>
+                        <li>SUSE / SLES</li>
+                        <li>Ubuntu</li>
+                        <li>Windows Server</li>
+                        <li>Linux Administration</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Automation & DevOps</h3>
+                    <ul class="skill-list">
+                        <li>Stonebranch UAC</li>
+                        <li>Informatica PowerCenter</li>
+                        <li>Docker / Containerization</li>
+                        <li>Git / Version Control</li>
+                        <li>CI/CD Pipelines</li>
+                        <li>Infrastructure as Code</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Integration & File Transfer</h3>
+                    <ul class="skill-list">
+                        <li>IBM Sterling File Gateway</li>
+                        <li>GoAnywhere MFT</li>
+                        <li>Enterprise Data Integration</li>
+                        <li>Secure File Transfers</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Architecture & Design</h3>
+                    <ul class="skill-list">
+                        <li>API Design</li>
+                        <li>Data Modeling</li>
+                        <li>System Architecture</li>
+                        <li>Microservices</li>
+                        <li>RESTful Services</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Web & 3D Technologies</h3>
+                    <ul class="skill-list">
+                        <li>React</li>
+                        <li>Three.js</li>
+                        <li>React Three Fiber</li>
+                        <li>WebXR (VR/AR)</li>
+                        <li>Node.js</li>
+                        <li>REST APIs</li>
+                        <li>Progressive Web Apps</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Database Administration</h3>
+                    <ul class="skill-list">
+                        <li>PostgreSQL</li>
+                        <li>Oracle DB</li>
+                        <li>MS SQL Server</li>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>Cassandra</li>
+                        <li>Redis</li>
+                        <li>IBM DB2</li>
+                        <li>AS/400</li>
+                        <li>Query Optimization</li>
+                        <li>Data Migration</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Enterprise Systems</h3>
+                    <ul class="skill-list">
+                        <li>ServiceNow</li>
+                        <li>Active Directory</li>
+                        <li>Group Policy</li>
+                        <li>MDT Deployment</li>
+                        <li>Windows Server Administration</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>IT Infrastructure</h3>
+                    <ul class="skill-list">
+                        <li>Server Administration</li>
+                        <li>Network Configuration</li>
+                        <li>Batch Processing</li>
+                        <li>System Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="container" id="creative" style="margin-top: 4rem;">
+                <h2 style="margin-bottom: 1rem;">🎨 Creative & Interactive Technologies</h2>
+                <p class="section-subtitle" style="margin-bottom: 2rem;">Beyond enterprise systems, I explore the intersection of technology and creativity—building immersive experiences, generative art, and interactive worlds.</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>🎮 Game Development</h3>
+                        <ul class="skill-list">
+                            <li>Unreal Engine (Blueprint & C++)</li>
+                            <li>Godot Engine (GDScript & C#)</li>
+                            <li>Game Design & Mechanics</li>
+                            <li>Interactive Storytelling</li>
+                            <li>Cross-Platform Deployment</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>🥽 XR/VR Development</h3>
+                        <ul class="skill-list">
+                            <li>Meta Quest 3 Development</li>
+                            <li>Spatial Computing</li>
+                            <li>Hand Tracking & Gestures</li>
+                            <li>Immersive UI/UX Design</li>
+                            <li>WebXR & Three.js</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>🎨 3D Modeling & Design</h3>
+                        <ul class="skill-list">
+                            <li>Blender 3D (Modeling & Sculpting)</li>
+                            <li>Geometry Nodes (Procedural)</li>
+                            <li>Cycles Rendering</li>
+                            <li>Game Asset Optimization</li>
+                            <li>Graphic Design & Branding</li>
+                            <li>Digital Art Creation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3>🎵 Generative Music & Audio</h3>
+                        <ul class="skill-list">
+                            <li>SuperCollider (Audio Synthesis)</li>
+                            <li>TidalCycles (Haskell Live Coding)</li>
+                            <li>Algorithmic Composition</li>
+                            <li>Custom Synthesizers & Effects</li>
+                            <li>Interactive Sound Design</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2.5rem; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 8px; border-left: 4px solid var(--primary);">
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin: 0;">
+                        <strong>💡 Creative Philosophy:</strong> These aren't hobbies—they're how I think. Building immersive experiences, composing with code, and crafting 3D worlds teaches problem-solving that makes me better at enterprise work. Creativity and rigor aren't opposites; they're partners.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                    I'm open to new roles in software engineering, automation, or AI development. Check out my GitHub for more code samples or reach out directly.
+                </p>
+                
+                <div class="social-links">
+                    <a href="mailto:alexf82@msn.com" class="social-link">
+                        <span>📧</span> alexf82@msn.com
+                    </a>
+                    <a href="https://www.tiktok.com/@notsoquesadilla" class="social-link" target="_blank">
+                        <span>📱</span> TikTok
+                    </a>
+                    <a href="https://github.com/AlexFrancisco" class="social-link" target="_blank">
+                        <span>💻</span> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Alex Francisco. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Software Engineer | Automation Architect | AI Developer</p>
+        </div>
+    </footer>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('nav ul');
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('mobile-menu-open');
+                    this.setAttribute('aria-expanded', navMenu.classList.contains('mobile-menu-open'));
+                });
+            }
+            
+            // Mobile dropdown toggle
+            dropdowns.forEach(dropdown => {
+                const toggle = dropdown.querySelector('.dropdown-toggle');
+                if (toggle) {
+                    toggle.addEventListener('click', function(e) {
+                        if (window.innerWidth <= 768) {
+                            e.preventDefault();
+                            dropdown.classList.toggle('mobile-dropdown-open');
+                        }
+                    });
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768 && !e.target.closest('nav') && navMenu.classList.contains('mobile-menu-open')) {
+                    navMenu.classList.remove('mobile-menu-open');
+                    if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
