@@ -139,6 +139,7 @@
         
         <div class="redirect-box">
             <div class="ip-display" id="ip-display">Loading...</div>
+            <div style="font-size: 0.95rem; color: #ccc; margin-bottom: 1rem;">🎮 Minecraft: <span id="mc-ip-display" style="font-family: monospace; color: #ffd700;">Loading...</span></div>
             <div class="countdown">Entering the mesa in <span id="timer">5</span> seconds...</div>
             <div class="manual-link">
                 <a href="#" id="enter-link">Enter Now</a>
@@ -154,11 +155,13 @@
             .then(ip => {
                 ip = ip.trim();
                 serverUrl = `http://${ip}:8080`;
-                document.getElementById('ip-display').textContent = `${ip}:8080`;
+                document.getElementById('ip-display').textContent = `BlueMap: ${ip}:8080`;
+                document.getElementById('mc-ip-display').textContent = `${ip}:25565`;
                 document.getElementById('enter-link').href = serverUrl;
             })
             .catch(() => {
                 document.getElementById('ip-display').textContent = 'IP unavailable';
+                document.getElementById('mc-ip-display').textContent = 'unavailable';
             });
 
         // Countdown timer
